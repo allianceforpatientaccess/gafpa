@@ -277,8 +277,7 @@
    // Europe -> Posters
    while($europe_posters_query->have_posts()) : $europe_posters_query->the_post();
 ?>
-   <h3><a href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></h3>
-
+   <a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a>
 <?php
    endwhile;
    wp_reset_postdata();

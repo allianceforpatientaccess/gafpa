@@ -147,7 +147,7 @@
 
          <div class="col-sm-6 copyright">
             <?php if($copyright) { ?>
-               <p>&copy; <?php echo date('Y')?> <?php echo $copyright ?>. All Rights Reserved. | <a href="http://conflare.com" target="_blank">Design by Conflare</a></p>
+               <p>&copy; <?php echo date('Y')?> <?php echo $copyright ?>. All Rights Reserved. | <a href="http://avinerenberg.com" target="_blank">Design by Avi Nerenberg</a></p>
             <?php } ?>
          </div>
          <div class="col-sm-6 slogan">
