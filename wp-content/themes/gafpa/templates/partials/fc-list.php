@@ -33,6 +33,8 @@
                   <div class="item <?= 'col-lg-' . $columns_large . ' col-md-'. $columns_desktop . ' col-sm-' . $columns_tablet . ' col-xs-' . $columns_phone?>">
 
                      <?php
+                     error_reporting(E_ALL & ~E_WARNING); // suppress warnings for the in_array() functions below
+
                      $posts = get_sub_field('icon_relationship');
                      if( $posts ): ?>
                         <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
