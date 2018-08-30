@@ -1,0 +1,180 @@
+footer {
+   background: #0C142D;
+   background-image: url(../../assets/images/background_globe.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+
+   .cta-wrapper {
+      text-align: center;
+      padding-top: 40px;
+      padding-bottom: 20px;
+
+      .cta-heading {
+         font-size: 80%;
+         margin-bottom: 0;
+         font-weight: lighter;
+      }
+
+      .btn.gradient {
+         margin-top: 0;
+         color: white;
+         border: 2px solid #63A3D8;
+         background: transparent;
+         -webkit-transition: background 0.75s; /* Safari */
+         transition: background 0.75s;
+
+         &:hover {
+            color: #0C142D;
+            background: #63A3D8; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(left, white, #63A3D8); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, white, #63A3D8); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, white, #63A3D8); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(right, white, #63A3D8); /* Standard syntax */
+         }
+      }
+   }
+
+   .footer-middle {
+      margin-top: 40px;
+      margin-bottom: 40px;
+   }
+
+   .footer-info {
+      h3 {
+         font-weight: bold;
+         font-size: 20px;
+         line-height: 1.35em;
+      }
+
+      .contact-info {
+         font-weight: 300;
+         font-size: 14px;
+
+         @include respondTo(tablet, phone) {
+            margin-bottom: 50px;
+         }
+      }
+
+      @include respondTo(tablet, phone) {
+         text-align: center;
+      }
+   }
+
+   .footer-nav-wrapper {
+      @include respondTo(phone) {
+         text-align: center;
+      }
+
+      .column {
+         @include respondTo(phone) {
+            margin-top: 20px;
+         }
+      }
+
+      .landing-page,
+      .sub-page {
+         font-weight: 300;
+         a {
+            font-weight: 300;
+         }
+      }
+
+      .landing-page {
+         font-size: 18px;
+      }
+      .sub-page {
+         font-size: 14px;
+      }
+   }
+
+   .footer-bottom {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      font-size: 10px;
+      text-align: center;
+
+      .copyright {
+         @include respondTo(above-phone) {
+            text-align: left;
+         }
+      }
+
+      .slogan {
+         p {
+            font-family: "Raleway",Arial, sans-serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+
+            @include respondTo(above-phone) {
+               text-align: right;
+            }
+         }
+      }
+   }
+
+   .facebook, .twitter {
+      display: inline-block;
+      background-size: cover;
+      height: 40px;
+      width: 40px;
+   }
+
+   .twitter {
+      background-image: url(../../assets/images/twitter_hover.png);
+      margin-right: 15px;
+
+      &:hover {
+         background-image: url(../../assets/images/twitter.png);
+      }
+   }
+
+   .facebook {
+      background-image: url(../../assets/images/facebook_hover.png);
+
+      &:hover {
+         background-image: url(../../assets/images/facebook.png);
+      }
+   }
+
+
+
+h3,
+h4,
+h5
+{
+   color: #7987b3 !important;
+}
+
+.text,
+p,
+ol,
+ul,
+li
+{
+   color: #7987b3 !important;
+}
+
+a {
+   color: #7987b3;
+}
+
+a:hover {
+   color: #7987b3;
+}
+
+// .btn {
+//    background: #7987b3  !important;
+//    color: #0c142d !important;
+// }
+//
+// .btn:hover {
+//    background: #0c142d !important;
+//    color: #7987b3 !important;
+//    border-color: #7987b3 !important;
+// }
+
+.container .cta-wrapper {
+   border-bottom: 1px solid #7987b3;
+}
+
+}

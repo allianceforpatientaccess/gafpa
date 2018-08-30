@@ -1,0 +1,121 @@
+.fc-list {
+   position: relative;
+
+   &.scroll-arrow {
+      padding-bottom: 150px !important;
+
+      &:after {
+         font-family: 'FontAwesome';
+         position: absolute;
+         content: '\f107';
+         bottom: 90px;
+         margin-left: auto;
+         margin-right: auto;
+         left: 0;
+         right: 0;
+         display: block;
+         text-align: center;
+         font-size: 250%;
+         color: inherit;
+         font-weight: lighter;
+      }
+   }
+
+   .item {
+      margin-top: 50px;
+
+      img, .text, .heading {
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      img {
+         margin-top: 25px;
+      }
+
+      .btn {
+         margin-bottom: 50px;
+      }
+
+      .text, .heading {
+         max-width: 800px;
+
+         @include respondTo(large) {
+            padding-left: 75px;
+            padding-right: 75px;
+         }
+
+         @include respondTo(desktop) {
+            padding-left: 25px;
+            padding-right: 25px;
+         }
+
+         @include respondTo(tablet) {
+            padding-left: 25px;
+            padding-right: 25px;
+         }
+
+         @include respondTo(phone) {
+            max-width: 500px;
+         }
+      }
+
+      .heading, .btn-wrapper {
+         text-align: center;
+      }
+   }
+
+   .relationship {
+      margin-top: 60px;
+
+      .column {
+         @include respondTo(phone) {
+            clear: both;
+            margin-bottom: 60px;
+         }
+         @include respondTo(above-phone) {
+            padding-right: 40px;
+         }
+
+      }
+
+      .dates {
+         font-weight: 300;
+         font-style: italic;
+         font-size: 15px;
+         //color: $blue-dark;
+      }
+
+      h4 {
+         font-size: 20px;
+         //color: #fff;
+         font-weight: normal;
+         margin-top: 2px;
+         text-transform: inherit;
+
+         a {
+            //color: #fff;
+         }
+      }
+
+      .excerpt {
+         font-size: 15px;
+         //color: $blue-dark;
+         line-height: 1.75em;
+      }
+
+      h6 {
+         font-weight: bold;
+         font-size: 16px;
+         //color: $blue-dark;
+         width: 100%;
+         text-align: left;
+
+         a {
+            text-decoration: underline;
+            //color: $blue-dark;
+            margin-top: 2px;
+         }
+      }
+   }
+}

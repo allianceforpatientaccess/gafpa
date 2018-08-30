@@ -1,0 +1,353 @@
+header {
+   //overflow: hidden;
+   background: #5493D4;
+
+  .header-primary-container {
+ 		position: relative;
+ 	}
+
+   @include respondTo(above-phone) {
+ 		.lang_sel_click{
+ 			position: absolute !important;
+ 	    	top: 0;
+ 	    	right: 0;
+ 		}
+ 	}
+   .navbar {
+      background: url(../../assets/images/background1.svg);
+      background-size: cover;
+      padding-left: 50px;
+      padding-right: 50px;
+      border: none;
+      margin-left: -5px;
+      margin-right: -5px;
+
+      @include respondTo(phone,tablet) {
+         height: 90px;
+      }
+
+      .navbar-header {
+         button:focus, button:hover {
+            background: transparent;
+         }
+
+         button:not(.collapsed) {
+            .icon-bar {
+               display: none;
+            }
+
+            i {
+               color: white;
+               font-size: 17px;
+            }
+         }
+         button.collapsed {
+            i {
+               display: none;
+            }
+         }
+      }
+
+      @include respondTo(phone,tablet) {
+         margin-top: 0 !important;
+         margin-bottom: 28px;
+      }
+
+      ul {
+         float: right;
+
+         @include respondTo(phone,tablet) {
+            width: 100%;
+            float: none;
+         }
+
+         li {
+            font-size: 14px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            @include respondTo(phone,tablet) {
+               min-height: 50px;
+            }
+
+            a {
+               padding-left: 25px;
+               padding-right: 25px;
+               color: $blue-medium-dark !important;
+               display: block;
+               @include respondTo(phone,tablet) {
+                  padding-top: 17px;
+               }
+
+               &:hover {
+                  color: #fff !important;
+               }
+            }
+         }
+      }
+   }
+
+   .navbar-brand img {
+      height: 100px;
+      @include respondTo(phone,tablet) {
+         height: 60px;
+      }
+   }
+
+   .navbar-wrapper {
+      max-width: 1280px;
+      overflow: visible;
+   }
+
+   // Bootstrap overrides
+   @include respondTo(phone,tablet) {
+      .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+         margin-left: 0;
+         margin-right: 0;
+      }
+
+      .navbar-nav {
+         margin-top: 0;
+      }
+
+      .navbar-collapse {
+         padding-right: 0;
+      }
+
+      .navbar-brand img {
+         margin-left: -45px;
+      }
+   }
+
+   .navbar-nav>li>a {
+      padding-top: 54px;
+      padding-bottom: 54px;
+   }
+
+   .navbar-toggle {
+      border: none;
+      top: 18px;
+   }
+
+   .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus, .navbar-inverse .navbar-nav .current-menu-parent>a {
+      background-color: transparent;
+      color: black;
+   }
+
+   .navbar-inverse .navbar-nav .active>a, .navbar-inverse .navbar-nav .active>a:focus, .navbar-inverse .navbar-nav .active>a:hover, .navbar-inverse .navbar-nav .current-menu-parent>a {
+      color: #fff !important;
+      background: $blue-medium-dark !important;
+   }
+
+   .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav .current-menu-parent>a {
+      color: white !important;
+   }
+
+   // HIDE PAGE INDICATOR ON PAGES (E.G., HOME)
+   body.page {
+      &.home {
+         #page-indicator {
+            display: none;
+         }
+      }
+   }
+
+      .dropdown-menu, .dropdown-menu.open {
+         padding: 0;
+         margin: 0;
+         background: #5493D4;
+         border: none;
+         border-radius: 0;
+
+         li {
+            height: 50px;
+
+            @include respondTo(phone,tablet) {
+               height: 40px;
+            }
+
+            &:hover {
+               background: $blue-medium-dark;
+            }
+
+            a {
+               display: block;
+               padding-left: 35px;
+               padding-right: 75px;
+               padding-top: 16px !important;
+               height: 50px;
+               font-size: 12px;
+               font-weight: bold;
+
+               @include respondTo(phone,tablet) {
+                  font-size: 14px;
+               }
+
+               &:hover, &:focus {
+                  background: transparent;
+               }
+            }
+
+
+            &.menu-item-subitem {
+               @include respondTo(above-tablet) {
+                  height: 25px;
+
+                  &:hover {
+                     background: transparent;
+                  }
+
+                  &:last-of-type {
+                     margin-bottom: 35px;
+                  }
+               }
+
+               a {
+                  font-size: 11px;
+                  letter-spacing: 1.1px;
+                  display: block;
+                  color: gray;
+                  text-transform: capitalize;
+                  padding-right: 35px;
+                  font-weight: normal;
+                  height: 25px;
+                  line-height: 0;
+
+                  @include respondTo(above-tablet) {
+                     &:hover {
+                        color: black !important;
+                     }
+                  }
+               }
+            }
+         }
+
+      }
+
+   .open > .dropdown-menu{
+     display: block !important;
+   }
+
+   // Bootstrap overrides
+   .navbar .dropdown-toggle span {
+      @include respondTo(above-tablet) {
+         display:none;
+      }
+   }
+
+   .navbar-toggle {
+      border: none;
+   }
+
+   // .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus, .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus, .navbar-inverse .navbar-nav .current-menu-parent>a {
+   //    background-color: transparent;
+   //    color: black;
+   // }
+   //
+   // .navbar-inverse .navbar-nav .active>a, .navbar-inverse .navbar-nav .active>a:focus, .navbar-inverse .navbar-nav .active>a:hover, .navbar-inverse .navbar-nav .current-menu-parent>a {
+   //    color: $bright-yellow !important;
+   //    background-color: $dark-gray;
+   // }
+   //
+   // .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav .current-menu-parent>a {
+   //    color: black !important;
+   // }
+
+   @include respondTo(above-tablet) {
+   	.menu-item-has-children {
+   		.dropdown-menu {
+   			display: block;
+   			overflow: hidden;
+   			height: 0;
+   			opacity: 0;
+   			-webkit-transition: height 300ms ease-in, opacity 400ms ease-in;
+   			-moz-transition: height 300ms ease-in, opacity 400ms ease-in;
+   			-o-transition: height 300ms ease-in, opacity 400ms ease-in;
+   			transition: height 300ms ease-in, opacity 400ms ease-in;
+   		}
+   		&:hover {
+   			.dropdown-menu {
+               height: auto;
+   				opacity: 1;
+   			}
+   		}
+   	}
+   }
+
+   @include respondTo(phone,tablet) {
+   	.navbar .dropdown-menu.mobile-visible {
+   		display: block !important;
+   	}
+   }
+
+   @include respondTo(phone,tablet) {
+      .dropdown-menu {
+         position: relative !important;
+         //display: block;
+
+         a {
+            text-indent: 25px;
+         }
+      }
+
+      .navbar-toggle {
+         position: absolute;
+         right: 0;
+      }
+
+
+      .navbar-fixed-top .navbar-collapse {
+         max-height: inherit;
+         background: #407AC6;
+         position: absolute;
+         left: 0;
+         width: 110%;
+         top: 88px;
+         border: none;
+
+         .menu-primary-navigation-container {
+            width: 100%;
+         }
+
+         ul {
+            li {
+               a {
+                  padding-top: 33px;
+                  padding-bottom: 33px;
+               }
+            }
+         }
+         ul li:not(.current-menu-parent) a:hover {
+            color: $blue-dark !important;
+         }
+
+      }
+      .navbar-fixed-bottom .navbar-collapse {
+          max-height: inherit;
+      }
+
+   }
+}
+
+@media (max-width: 989px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}

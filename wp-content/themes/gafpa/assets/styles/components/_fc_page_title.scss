@@ -1,0 +1,22 @@
+.page-title {
+   //height: 25px;
+   background-color: #142945;
+   //z-index: 1;
+   //width: 100%;
+   //position: fixed;
+   //margin-top: 70px;
+
+   @include respondTo(phone) {
+      margin-top: 0px !important;
+   }
+
+   h1 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #9EC6E7;
+      float: right;
+      text-transform: uppercase;
+      margin-top: 10px;
+      margin-bottom: 9px;
+   }
+}

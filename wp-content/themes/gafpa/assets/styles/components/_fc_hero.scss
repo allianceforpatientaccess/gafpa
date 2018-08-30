@@ -1,0 +1,122 @@
+/* Calculate fluid ratio based on two dimensions (width/height) */
+@mixin fluid-ratio($large-size, $small-size) {
+   $width-large: nth($large-size, 1);
+   $width-small: nth($small-size, 1);
+   $height-large: nth($large-size, 2);
+   $height-small: nth($small-size, 2);
+   $slope: ($height-large - $height-small) / ($width-large - $width-small);
+   $height: $height-small - $width-small * $slope;
+
+   max-width: $width-large;
+   max-height: $height-large;
+
+   background-size: cover;
+   -moz-background-size: cover;  /* Firefox 3.6 */
+   background-position: center;  /* Internet Explorer 7/8 */
+   background-position: 50% 50%;
+   margin-left: auto;
+   margin-right: auto;
+   position: relative;
+
+   &:after {
+      content: " ";
+      display: block;
+      width: 100%;
+      padding-top: $slope * 100%;
+      height: $height;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+   }
+}
+
+.fc-hero {
+   @include fluid-ratio(1500px 800px, 300px 500px);
+
+   .hero-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70%;
+
+      .text {
+         padding-left: 20px;
+         padding-right: 20px;
+      }
+
+      .icon {
+         padding-top: 20px;
+      }
+
+      @include respondTo(phone) {
+         width: 100%;
+      }
+      max-width: 590px;
+      display: none;
+      padding: 1vw 1vw 1vw 2.5vw;
+
+      h2 {
+         color: white;
+         line-height: 1.2;
+         @include respondTo(phone) {
+            font-size: 120%;
+         }
+      }
+
+      h4 {
+         text-align: center;
+      }
+
+      h6 {
+         a {
+            padding-bottom: 20px;
+         }
+      }
+   }
+
+   .arrow-down {
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:hover {
+         cursor: pointer;
+      }
+
+      svg .cls-1 {
+         stroke: black;
+      }
+   }
+
+   &.background-style-0 {
+      .hero-content {
+         background: rgba(20,41,69,0.8);
+      }
+
+      h3, h4, p, a, h6 {
+         color: white;
+      }
+   }
+
+   &.background-style-1 {
+      .hero-content {
+         background: rgba(20,41,69,0.8); /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left, $gradient-bright-color-1, $gradient-bright-color-2); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(right, $gradient-bright-color-1, $gradient-bright-color-2); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(right, $gradient-bright-color-1, $gradient-bright-color-2); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(right, $gradient-bright-color-1, $gradient-bright-color-2); /* Standard syntax */
+      }
+
+      p, a, h6 {
+         color: $blue-dark;
+      }
+
+      h3, h4 {
+         color: white;
+      }
+   }
+}

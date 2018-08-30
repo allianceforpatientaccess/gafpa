@@ -1,0 +1,148 @@
+body, html {
+   overflow-x: hidden;
+   //background: $blue-dark; //sets the background in the WP wysiwyg editors too
+}
+
+body.page {
+   //background: white; /* For browsers that do not support gradients */
+   // background: -webkit-radial-gradient(circle, black, gray, white); /* Safari */
+   // background: -o-radial-gradient(circle, black, gray, white); /* Opera 11.6 to 12.0 */
+   // background: -moz-radial-gradient(circle, black, gray, white); /* Firefox 3.6 to 15 */
+   // background: radial-gradient(circle, black, gray, white); /* Standard syntax */
+}
+
+.wrap {
+   //max-width: 1500px;
+   background: $blue-dark;
+   margin-top: 128px;
+   @include respondTo(phone,tablet) {
+      margin-top: 90px;
+   }
+   margin-left: auto;
+   margin-right: auto;
+   box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
+}
+
+footer {
+   box-shadow: -5px 0 5px -5px #333, 5px 0 5px -5px #333;
+}
+
+.color-style-dropdown {
+   display: none;
+}
+
+.container-fluid {
+   //max-width: 1500px;
+}
+
+h1 {
+   margin-bottom: 30px;
+}
+
+h2 {
+   margin-bottom: 20px;
+}
+
+h5 {
+   font-weight: bold !important;
+   margin-top: 20px;
+   line-height: 1.3;
+   letter-spacing: 1.6px;
+   text-transform: uppercase;
+   text-align: center;
+
+   a {
+      text-decoration: underline;
+   }
+
+   em {
+      font-style: normal;
+      font-size: 75%;
+   }
+
+}
+
+h6 {
+   width: 100%;
+   text-align: right;
+   margin-top: 30px;
+}
+
+h6 a {
+   font-weight: bold;
+   line-height: 1.3;
+   letter-spacing: 1.6px;
+   text-transform: uppercase;
+   text-decoration: underline;
+   font-size: 14px;
+
+   &:after {
+      font-family: 'FontAwesome';
+      content: "\f0da";
+      margin-left: 10px;
+      display: inline-block;
+   }
+
+   &:hover {
+      //font-weight: normal;
+      opacity: 0.9;
+   }
+}
+
+.icon svg {
+   height: 50px;
+   .cls-1, path, polygon, rect {
+      fill: white;
+   }
+}
+
+.btn, .gform_button {
+   border-radius: 3px;
+   border: 2px solid transparent;
+   padding: 12px 22px;
+   text-decoration: none;
+   letter-spacing: 3px;
+   text-transform: uppercase;
+
+   &.btn-light {
+      background: #b2c5d8;
+      color: #4f6078;
+   }
+
+   &.btn-dark {
+      background: #1a2434;
+      color: #fff;
+   }
+
+   &:hover {
+      opacity: 0.9;
+      border: 2px solid gray;
+   }
+}
+
+.btn-wrapper {
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+// .btn, input.gform_button {
+//    height: 57px;
+//    padding-top: 20px;
+//    padding-left: 30px;
+//    padding-right: 30px;
+//    margin-top: 30px;
+//    background-size: 100% 100%;
+//    background-color: transparent !important;
+//    background-image: url(../../assets/images/button.png);
+//    border: none;
+//    text-transform: uppercase;
+//    letter-spacing: 0.4px;
+//    font-size: 80%;
+//    -webkit-transition: background-image 0.75s; /* Safari */
+//    transition: background-image 0.75s;
+//
+//    &:hover {
+//       background-image: url(../../assets/images/button-hover.png);
+//       color: white !important;
+//    }
+// }

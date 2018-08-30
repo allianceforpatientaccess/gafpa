@@ -1,0 +1,79 @@
+.event-detail-wrapper {
+   background: white;
+   
+   .event-description {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      .text {
+         font-weight: lighter;
+      }
+   }
+
+   .event-details {
+      background: #142945;
+      color: #63A3D8;
+
+      .location {
+         margin-top: 50px;
+         color: white;
+         font-size: 150%;
+         margin-bottom: 0;
+         font-weight: lighter;
+      }
+
+      .dates {
+         text-transform: uppercase;
+         font-size: 80%;
+         font-weight: bold;
+      }
+
+      .btn {
+         color: white;
+         border: 2px solid white;
+         background: transparent;
+
+         &:hover {
+            color: #142945;
+            background: white;
+         }
+      }
+
+      .links {
+         @include respondTo(large) {
+            position: absolute;
+            bottom: 100px;
+            right: 25px;
+         }
+
+         .link,span {
+            text-transform: uppercase;
+            font-size: 70%;
+            font-weight: bold;
+            text-decoration: underline;
+         }
+
+         span {
+            text-decoration: none;
+         }
+      }
+   }
+
+   .event-form {
+      padding-top: 100px;
+      padding-bottom: 100px;
+
+      h3 {
+         color: $blue-dark;
+         text-align: center;
+      }
+
+      .text {
+         color: #fff;
+      }
+
+      .container {
+         margin: 0 auto;
+         max-width: 800px;
+      }
+   }
+}
