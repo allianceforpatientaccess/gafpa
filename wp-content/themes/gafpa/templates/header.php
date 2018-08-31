@@ -1,4 +1,5 @@
 <header>
+  <?php $isSubscribe = false; // used to determine if on subscribe page ?>
    <nav class="navbar navbar-inverse navbar-fixed-top">
      <div class="container-fluid navbar-wrapper header-primary-container">
        <div class="navbar-header">
