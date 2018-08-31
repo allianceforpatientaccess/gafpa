@@ -24,6 +24,29 @@ body, html {
     font-size: 32px;
 }
 
+/*******EVENT ARCHIVE FORMATTING*******/
+
+#split-page-main {
+  width: 100%;  
+}
+
+.gray {
+  background-color: #F6F6F6;
+}
+
+#split-page-container {
+  margin: auto;
+  max-width: 1000px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.search-page {
+  flex-flow: column nowrap !important;
+}
+
 /*******FOOTER POSTS FORMATTING*********/
 
 #recent-blog-posts {
