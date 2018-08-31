@@ -108,7 +108,7 @@ error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the be
       <?php foreach ($queries as $query) :
 
          if ($count % 5 == 0 && $count < 15) : ?>
-            <h2 style="text-align: center; padding-top: 25px; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
+            <h2 id="<?php echo $region[$regionCount]; ?>" style="text-align: center; padding-top: 25px; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
             <?php $regionCount++;
          endif;
          
