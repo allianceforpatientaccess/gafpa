@@ -49,7 +49,7 @@ error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the be
    $regionQueriesCount  = 0;
 
    // generates an array of the specific taxonomy for each query
-   for ($count = 0; $count <= 15; $count++) {
+   for ($count = 0; $count < 15; $count++) {
       array_push( $tax_arrays, array_merge( $tax_query_slug, array( 'terms' => array( $region_queries[$regionQueriesCount], $media_queries[$count % 5] ) ) ) );
 
       if($count % 5 == 4) {
@@ -107,13 +107,13 @@ error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the be
    <section style="background: white;">
       <?php foreach ($queries as $query) :
 
-         if ($count % 5 == 0) : ?>
+         if ($count % 5 == 0 && $count < 15) : ?>
             <h2 style="text-align: center; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
             <?php $regionCount++;
          endif;
          
          if ($query->have_posts()) : ?>
-            <h3 style="text-align: center; color: #142945;"><?php echo $media[$count % 5]; ?></h3>
+            <p style="text-align: center; font-weight: 500; color: #142945;"><?php echo $media[$count % 5]; ?></p>
          <?php endif;
 
          $count++;
