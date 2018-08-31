@@ -22,95 +22,109 @@
    /* RESOURCES */
 
    // TAXONOMY ARRAYS
-   $resources_tax_query          =  array(
-                                       'taxonomy'  => 'attachment_category',
-                                       'field'     => 'slug',
-                                       'terms'     => 'resources',
-                                    );
+   $resources_tax_query             =  array(
+                                          'taxonomy'  => 'attachment_category',
+                                          'field'     => 'slug',
+                                          'terms'     => 'resources',
+                                       );
 
    // Europe tax arrays
    $europe_posters_tax_query        =  array(
                                           'taxonomy'  => 'attachment_tag',
                                           'field'     => 'slug',
                                           'terms'     => array( 'europe', 'poster' ),
+                                          'operator'  => 'AND',
                                        );
    $europe_reports_tax_query        =  array(
                                           'taxonomy'  => 'attachment_tag',
                                           'field'     => 'slug',
                                           'terms'     => array( 'europe', 'report' ),
+                                          'operator'  => 'AND',
                                        );
    $europe_fastfacts_tax_query      =  array(
                                           'taxonomy'  => 'attachment_tag',
                                           'field'     => 'slug',
                                           'terms'     => array( 'europe', 'fast-facts' ),
+                                          'operator'  => 'AND',
                                        );
    $europe_policypapers_tax_query   =  array(
                                           'taxonomy'  => 'attachment_tag',
                                           'field'     => 'slug',
                                           'terms'     => array( 'europe', 'policy-papers' ),
+                                          'operator'  => 'AND',
                                        );
    $europe_infographics_tax_query   =  array(
                                           'taxonomy'  => 'attachment_tag',
                                           'field'     => 'slug',
                                           'terms'     => array( 'europe', 'infographics' ),
+                                          'operator'  => 'AND',
                                        );
 
    // Latin America tax arrays
-   $latin_america_posters_tax_query        = array(
+   $latin_america_posters_tax_query       =  array(
                                                 'taxonomy'  => 'attachment_tag',
                                                 'field'     => 'slug',
                                                 'terms'     => array( 'latin-america', 'poster' ),
+                                                'operator'  => 'AND',
                                              );
-   $latin_america_reports_tax_query        = array(
+   $latin_america_reports_tax_query       =  array(
                                                 'taxonomy'  => 'attachment_tag',
                                                 'field'     => 'slug',
                                                 'terms'     => array( 'latin-america', 'report' ),
+                                                'operator'  => 'AND',
                                              );
-   $latin_america_fastfacts_tax_query      = array(
+   $latin_america_fastfacts_tax_query     =  array(
                                                 'taxonomy'  => 'attachment_tag',
                                                 'field'     => 'slug',
                                                 'terms'     => array( 'latin-america', 'fast-facts' ),
+                                                'operator'  => 'AND',
                                              );
-   $latin_america_policypapers_tax_query   = array(
+   $latin_america_policypapers_tax_query  =  array(
                                                 'taxonomy'  => 'attachment_tag',
                                                 'field'     => 'slug',
                                                 'terms'     => array( 'latin-america', 'policy-papers' ),
+                                                'operator'  => 'AND',
                                              );
-   $latin_america_infographics_tax_query   = array(
+   $latin_america_infographics_tax_query  =  array(
                                                 'taxonomy'  => 'attachment_tag',
                                                 'field'     => 'slug',
                                                 'terms'     => array( 'latin-america', 'infographics' ),
+                                                'operator'  => 'AND',
                                              );
 
    // International tax arrays
-   $international_posters_tax_query        =  array(
-                                          'taxonomy'  => 'attachment_tag',
-                                          'field'     => 'slug',
-                                          'terms'     => array( 'international', 'poster' ),
-                                       );
-   $international_reports_tax_query        =  array(
-                                          'taxonomy'  => 'attachment_tag',
-                                          'field'     => 'slug',
-                                          'terms'     => array( 'international', 'report' ),
-                                       );
-   $international_fastfacts_tax_query      =  array(
-                                          'taxonomy'  => 'attachment_tag',
-                                          'field'     => 'slug',
-                                          'terms'     => array( 'international', 'fast-facts' ),
-                                       );
-   $international_policypapers_tax_query   =  array(
-                                          'taxonomy'  => 'attachment_tag',
-                                          'field'     => 'slug',
-                                          'terms'     => array( 'international', 'policy-papers' ),
-                                       );
-   $international_infographics_tax_query   =  array(
-                                          'taxonomy'  => 'attachment_tag',
-                                          'field'     => 'slug',
-                                          'terms'     => array( 'international', 'infographics' ),
-                                       );
+   $international_posters_tax_query       =  array(
+                                                'taxonomy'  => 'attachment_tag',
+                                                'field'     => 'slug',
+                                                'terms'     => array( 'international', 'poster' ),
+                                                'operator'  => 'AND',
+                                             );
+   $international_reports_tax_query       =  array(
+                                                'taxonomy'  => 'attachment_tag',
+                                                'field'     => 'slug',
+                                                'terms'     => array( 'international', 'report' ),
+                                                'operator'  => 'AND',
+                                             );
+   $international_fastfacts_tax_query     =  array(
+                                                'taxonomy'  => 'attachment_tag',
+                                                'field'     => 'slug',
+                                                'terms'     => array( 'international', 'fast-facts' ),
+                                                'operator'  => 'AND',
+                                             );
+   $international_policypapers_tax_query  =  array(
+                                                'taxonomy'  => 'attachment_tag',
+                                                'field'     => 'slug',
+                                                'terms'     => array( 'international', 'policy-papers' ),
+                                                'operator'  => 'AND',
+                                             );
+   $international_infographics_tax_query  =  array(
+                                                'taxonomy'  => 'attachment_tag',
+                                                'field'     => 'slug',
+                                                'terms'     => array( 'international', 'infographics' ),
+                                                'operator'  => 'AND',
+                                             );
 
    // ARGUMENT ARRAYS
-
    // Europe arg arrays
    $europe_posters      =  array(
                               'post_type'       => 'attachment',
@@ -123,7 +137,7 @@
                            );
    $europe_reports      =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $europe_reports_tax_query,
@@ -132,7 +146,7 @@
                            );
    $europe_fastfacts    =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $europe_fastfacts_tax_query,
@@ -141,7 +155,7 @@
                            );
    $europe_policypapers =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $europe_policypapers_tax_query,
@@ -150,7 +164,7 @@
                            );
    $europe_infographics =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $europe_infographics_tax_query,
@@ -159,9 +173,9 @@
                            );
 
    // Latin America arg arrays
-   $latin_america_posters      =  array(
+   $latin_america_posters     =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $latin_america_posters_tax_query,
@@ -170,7 +184,7 @@
                            );
    $latin_america_reports      =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $latin_america_reports_tax_query,
@@ -179,7 +193,7 @@
                            );
    $latin_america_fastfacts    =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $latin_america_fastfacts_tax_query,
@@ -188,7 +202,7 @@
                            );
    $latin_america_policypapers =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $latin_america_policypapers_tax_query,
@@ -197,7 +211,7 @@
                            );
    $latin_america_infographics =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $latin_america_infographics_tax_query,
@@ -208,7 +222,7 @@
    // International arg arrays
    $international_posters      =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $international_posters_tax_query,
@@ -217,7 +231,7 @@
                            );
    $international_reports      =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $international_reports_tax_query,
@@ -226,7 +240,7 @@
                            );
    $international_fastfacts    =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $international_fastfacts_tax_query,
@@ -235,7 +249,7 @@
                            );
    $international_policypapers =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $international_policypapers_tax_query,
@@ -244,7 +258,7 @@
                            );
    $international_infographics =  array(
                               'post_type'       => 'attachment',
-                              'post_status'     => 'inherit', // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+                              'post_status'     => 'inherit',
                               'tax_query'       => array(
                                                       $resources_tax_query,
                                                       $international_infographics_tax_query,
@@ -271,19 +285,39 @@
    $international_fastfacts_query = new WP_Query($international_fastfacts);
    $international_policypapers_query = new WP_Query($international_policypapers);
    $international_infographics_query = new WP_Query($international_infographics);
-?>
 
-<?php
-   // Europe -> Posters
-   while($europe_posters_query->have_posts()) : $europe_posters_query->the_post();
+   $queries = array(
+      $europe_posters_query,
+      $europe_reports_query,
+      $europe_fastfacts_query,
+      $europe_policypapers_query,
+      $europe_infographics_query,
+      $latin_america_posters_query,
+      $latin_america_reports_query,
+      $latin_america_fastfacts_query,
+      $latin_america_policypapers_query,
+      $latin_america_infographics_query,
+      $international_posters_query,
+      $international_reports_query,
+      $international_fastfacts_query,
+      $international_policypapers_query,
+      $international_infographics_query,
+   );
+
+   foreach ($queries as $query) :
+      
+      if ($query->have_posts()) {
+         
+      }
+
+      while ($query->have_posts()) : $query->the_post();
 ?>
-   <a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a>
+         <a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a>
 <?php
-   endwhile;
+      endwhile;
+   endforeach;
+
    wp_reset_postdata();
-
-   // Latin America
-   // International
 
    /* STATIC CONTENT */
    if (strpos(get_permalink($post->ID), 'event') !== false) :

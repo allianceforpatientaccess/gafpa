@@ -146,9 +146,9 @@
       <div class="row footer-bottom">
 
          <div class="col-sm-6 copyright">
-            <?php if($copyright) { ?>
-               <p>&copy; <?php echo date('Y')?> <?php echo $copyright ?>. All Rights Reserved. | <a href="http://avinerenberg.com" target="_blank">Design by Avi Nerenberg</a></p>
-            <?php } ?>
+            <?php if($copyright) : ?>
+               <p>&copy; <?php echo date('Y')?> <?php echo $copyright ?>. All Rights Reserved. | <a href="http://avinerenberg.com" target="_blank">Theme by Avi Nerenberg.</a></p>
+            <?php endif; ?>
          </div>
          <div class="col-sm-6 slogan">
             <?php if($slogan) { ?>
