@@ -18,17 +18,10 @@
 		<!-- /post title -->
 
 		<!-- post date -->
-		<p class="thumbnail-article-date" style="display: flex; padding: 5px 0 0 10px; font-size: 1.2em; font-weight: 500">
+		<p class="thumbnail-article-date" style="display: flex; padding: 5px 0 0 10px;">
 			<?php the_time(get_option('date_format')); ?>
 		</p>
 		<!-- /post date -->
-
-		<!-- excerpt, read more, edit post links -->
-		<?php echo "<h2 class='thumbnail-article-text'"; // hack to correctly style the excerpt ?>
-		<?php echo "</h2><a style='display: flex; padding: 0px 10px;'"; ?>
-		<?php edit_post_link(); ?>
-		<?php echo "</a>"; ?>
-		<!-- /excerpt, read more, edit post links -->
 		
 	</article>
 	<!-- /article -->
