@@ -16,7 +16,7 @@
 
    <!--recent blog posts-->
    <section id="recent-blog-posts">
-      <h1 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: white; margin-bottom: 0;">New on GAfPA</h1>
+      <h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: white; margin-bottom: 0;">New on GAfPA</h2>
    </section>
 
    <section class="home-block">
