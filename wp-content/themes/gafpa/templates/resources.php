@@ -108,19 +108,19 @@ error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the be
       <?php foreach ($queries as $query) :
 
          if ($count % 5 == 0) : ?>
-            <h2 style="text-align: center;"><?php echo $region[$regionCount]; ?></h2>
+            <h2 style="text-align: center; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
             <?php $regionCount++;
          endif;
          
          if ($query->have_posts()) : ?>
-            <h3 style="text-align: center;"><?php echo $media[$count % 5]; ?></h3>
+            <h3 style="text-align: center; color: #142945;"><?php echo $media[$count % 5]; ?></h3>
          <?php endif;
 
          $count++;
 
          while ($query->have_posts()) :
             $query->the_post() ?>
-            <p style="text-align: center;"><a href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+            <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
          <?php endwhile;
 
          wp_reset_postdata();
