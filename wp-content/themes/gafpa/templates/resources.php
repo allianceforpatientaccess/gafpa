@@ -324,7 +324,7 @@
    foreach ($queries as $query) :
 
       if ($count % 5 == 0) : ?>
-         <h1><?php echo $region[$regionCount]; ?></h1>
+         <h1 class="region"><?php echo $region[$regionCount]; ?></h1>
          <?php $regionCount++;
       endif;
       
