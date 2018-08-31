@@ -4,7 +4,7 @@ Template Name: Subscribe
 */
 
 // remove the "subscribe" button in the footer
-$isSubscribe = true;
+global $isSubscribe = true;
 
 /* FLEXIBLE CONTENT */
 if( have_rows('fc_panels') ):
