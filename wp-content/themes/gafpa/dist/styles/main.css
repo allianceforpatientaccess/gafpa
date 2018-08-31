@@ -8,18 +8,67 @@
  * - above-phone
  * - above-tablet 
 */
-/**
- * Responsive mixin. The media breakpoints are as defined in
- * the twitter bootstrap framework and supports responding to:
- * - phone
- * - tablet
- * - desktop
- * - large
- * - above-phone
- * - above-tablet 
-*/
 body, html {
   overflow-x: hidden; }
+
+/*******FOOTER POSTS FORMATTING*********/
+
+#recent-blog-posts {
+  padding-left: 0px !important;
+  margin: auto;
+  width: 100%;
+  background-color: #0C142D;
+
+  line-height: 10em;
+}
+
+.home-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 0px;
+
+  background-color: #0C142D;
+}
+
+.home-block-article {
+  max-width: 300px; /*fixed thumbnail sizes for home page*/
+  min-height: 200px;
+  margin: 0 0 30px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+
+  background-color: #0C142D;
+}
+
+.home-block-article img {
+  height: 200px;
+}
+
+.home-block-title {
+  font-weight: 800;
+  margin: 10px 0;
+  color: white;
+}
+
+.home-block-title:hover,
+.home-block-date:hover {
+  color: white;
+}
+
+.home-block-date {
+  font-weight: 600;
+  font-size: .8em;
+  text-transform: uppercase;
+  color: white;
+}
 
 .wrap {
   background: #0C142D;
