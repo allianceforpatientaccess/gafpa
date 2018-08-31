@@ -12,11 +12,17 @@
    $twitter = get_field('footer_twitter', $pageID);
 ?>
 
+<!-- subscribe button -->
+<section style="text-align: center;">
+   <button id="subscribe"><a href="<?php echo get_site_url(); ?>/"></a></button>
+</section>
+<!-- /subscribe button -->
+
 <footer class="container-fluid">
 
    <!--recent blog posts-->
    <section id="recent-blog-posts">
-      <h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: white; margin-bottom: 0;">From the Blog</h2>
+      <h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: white; padding-top: 100px; margin-bottom: 0;">From the Blog</h2>
    </section>
 
    <section class="home-block">
