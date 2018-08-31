@@ -324,22 +324,20 @@
    foreach ($queries as $query) :
 
       if ($count % 5 == 0) : ?>
-         <h1 class="region"><?php echo $region[$regionCount]; ?></h1>
+         <h2 class="region"><?php echo $region[$regionCount]; ?></h2>
          <?php $regionCount++;
       endif;
       
       if ($query->have_posts()) : ?>
-         <h2><?php echo $media[$count % 5]; ?></h2>
+         <h3><?php echo $media[$count % 5]; ?></h3>
       <?php endif;
 
       $count++;
 
       while ($query->have_posts()) :
-         $query->the_post();
-?>
-         <a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a>
-<?php
-      endwhile;
+         $query->the_post() ?>
+         <p><a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+      <?php endwhile;
    endforeach;
 
    wp_reset_postdata();
