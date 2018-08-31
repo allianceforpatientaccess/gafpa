@@ -1,5 +1,7 @@
 <?php /* Template Name: Resources */
 
+error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
+
    /* FLEXIBLE CONTENT */
    if( have_rows('fc_panels') ):
       while ( have_rows('fc_panels') ) : the_row();
