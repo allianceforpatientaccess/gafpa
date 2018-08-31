@@ -104,7 +104,7 @@ error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the be
    $count = 0;       // print the corresponding header text for each query
    $regionCount = 0; // print the region every 5 cycles (1 cycle of the media array) ?>
 
-   <section style="background: white;">
+   <section style="background: white; margin: 100px 0;">
       <?php foreach ($queries as $query) :
 
          if ($count % 5 == 0 && $count < 15) : ?>
