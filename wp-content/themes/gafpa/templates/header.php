@@ -1,6 +1,4 @@
 <header>
-  <?php global $isSubscribe; // used to determine if on subscribe page 
-  $isSubscribe = false ?>
    <nav class="navbar navbar-inverse navbar-fixed-top">
      <div class="container-fluid navbar-wrapper header-primary-container">
        <div class="navbar-header">

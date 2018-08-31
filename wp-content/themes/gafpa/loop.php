@@ -12,15 +12,15 @@
 		<!-- /post thumbnail -->
 
 		<!-- post title -->
-		<h1 style="display: flex; padding-left: 10px;">
+		<p style="display: flex; padding-left: 10px;">
 			<a class="thumbnail-article-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		</h1>
+		</p>
 		<!-- /post title -->
 
 		<!-- post date -->
-		<h1 class="thumbnail-article-date" style="display: flex; padding: 5px 0 0 10px; font-size: 1.2em; font-weight: 500">
+		<p class="thumbnail-article-date" style="display: flex; padding: 5px 0 0 10px; font-size: 1.2em; font-weight: 500">
 			<?php the_time(get_option('date_format')); ?>
-		</h1>
+		</p>
 		<!-- /post date -->
 
 		<!-- excerpt, read more, edit post links -->

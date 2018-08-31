@@ -39,7 +39,7 @@ endif;
          <?php endwhile; ?>
          <!-- /article -->
 
-         <h1 class="page-header" style="padding: 0;">Event Archive</h1>
+         <h2 style="padding: 0;">Event Archive</h2>
 
          <?php
             $catObj = get_category_by_slug('events'); 
