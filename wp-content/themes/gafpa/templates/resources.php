@@ -1,5 +1,7 @@
 <?php /* Template Name: Resources */
 
+error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
+
    /* FLEXIBLE CONTENT */
    if( have_rows('fc_panels') ):
       while ( have_rows('fc_panels') ) : the_row();
@@ -29,8 +31,8 @@
                      );
 
    $media_queries = array(
-                        'poster',
-                        'report',
+                        'posters',
+                        'reports',
                         'fast-facts',
                         'policy-papers',
                         'infographics'
@@ -48,11 +50,11 @@
 
    // generates an array of the specific taxonomy for each query
    for ($count = 0; $count <= 15; $count++) {
-      if($count % 5 == 0 && $count > 0) {
+      array_push( $tax_arrays, array_merge( $tax_query_slug, array( 'terms' => array( $region_queries[$regionQueriesCount], $media_queries[$count % 5] ) ) ) );
+
+      if($count % 5 == 4) {
          $regionQueriesCount++;  // only increment every 5 cycles (to cycle through each media type for each region)
       }
-      
-      array_push( $tax_arrays, array_merge( $tax_query_slug, array( 'terms' => array( $region_queries[$regionQueriesCount], $media_queries[$count % 5] ) ) ) );
    }
 
    // ARGUMENT ARRAYS
