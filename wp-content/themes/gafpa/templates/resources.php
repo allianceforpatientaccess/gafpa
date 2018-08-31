@@ -304,13 +304,38 @@
       $international_infographics_query,
    );
 
-   foreach ($queries as $query) :
-      
-      if ($query->have_posts()) {
-         
-      }
+   $region = array(
+      "Europe",
+      "Latin America",
+      "International",
+   );
 
-      while ($query->have_posts()) : $query->the_post();
+   $media = array(
+      "Posters",
+      "Reports",
+      "Fast Facts",
+      "Policy Papers",
+      "Infographics",
+   );
+
+   $count = 0; // print the corresponding header text for each query
+   $regionCount = 0;
+
+   foreach ($queries as $query) :
+
+      if ($count % 5 == 0) : ?>
+         <h1><?php echo $region[$regionCount]; ?></h1>
+         <?php $regionCount++;
+      endif;
+      
+      if ($query->have_posts()) : ?>
+         <h2><?php echo $media[$count % 5]; ?></h2>
+      <?php endif;
+
+      $count++;
+
+      while ($query->have_posts()) :
+         $query->the_post();
 ?>
          <a style="text-align: center;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a>
 <?php
