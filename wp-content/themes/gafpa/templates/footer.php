@@ -13,8 +13,8 @@
 ?>
 
 <!-- subscribe button -->
-<section style="text-align: center;">
-   <button id="subscribe"><a href="<?php echo get_site_url(); ?>/"></a></button>
+<section style="text-align: center; padding: 0 0 100px 0;">
+   <button id="subscribe"><a style="text-transform: uppercase; color: white;" href="<?php echo get_site_url(); ?>/email-signup/">Subscribe</a></button>
 </section>
 <!-- /subscribe button -->
 
