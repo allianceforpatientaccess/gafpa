@@ -3,7 +3,7 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 	<!-- article -->
-	<article style="display: block; min-height: 220px" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article style="display: block; min-height: 100px;" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<!-- post thumbnail -->
 		<a class="loop-thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
