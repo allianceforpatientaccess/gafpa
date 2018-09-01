@@ -139,9 +139,9 @@
                      <?php endif; ?>
                   </div>
                   <?php
-                  endwhile;
+                  endwhile;   
                endif;
-               ?>
+               ?>              
             </div>
             <div class="col-md-2 col-sm-3 column">
                <?php
@@ -165,6 +165,12 @@
                   endwhile;
                endif;
                ?>
+
+               <!-- footer widget -->
+               <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Footer") ) : ?>
+               <?php endif;?>
+               <!-- /footer widget --> 
+               
             </div>
          </div>
       </div>
