@@ -125,11 +125,13 @@
          // print post (The Loop)
          while ($query->have_posts()) :
             $query->the_post();
-            //$image = wp_get_attachment_url();    // URL of the image (work around for lack of thumbnail)
-            //$imageData = base64_encode($image);  // the encoded image 
+            $image_url = wp_get_attachment_url();                    // URL of the image (work around for lack of thumbnail)
+            $remote_image = file_get_contents($image_url);
+            echo file_put_contents("remote_image.pdf", $remote_image);
+            //$imageData = base64_encode($image);                    // the encoded image 
             $im = new Imagick();
-            $im->setResolution(300, 300);          //set the resolution of the resulting jpg
-            $im->readImage(wp_get_attachment_url());         //[0] for the first page
+            $im->setResolution(300, 300);                            //set the resolution of the resulting jpg
+            $im->readImage("remote_image.pdf[0]");         //[0] for the first page
             $im->setImageFormat('jpg');
             header('Content-Type: image/jpeg');
             echo $im; ?>
