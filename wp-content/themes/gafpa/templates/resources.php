@@ -59,7 +59,7 @@
 
    // ARGUMENT ARRAYS
    // the static "resources" query
-   $resources_tax_query =  array(
+   $resources_tax_query = array(
                            'taxonomy'  => 'attachment_category',
                            'field'     => 'slug',
                            'terms'     => 'resources',
@@ -85,8 +85,9 @@
       array_push( $queries, new WP_Query( $args ) );
    }
 
-   /* PRINTING */
+   /* DISPLAY */
 
+   // each array contains the text that will be displayed above the resources for each region & media type
    $region = array(
       "Europe",
       "Latin America",
@@ -107,20 +108,29 @@
    <section style="background: white; padding: 100px 0 0 0;">
       <?php foreach ($queries as $query) :
 
+         // print respective region name every fifth cycle (one for each of the media types)
          if ($count % 5 == 0 && $count < 15) : ?>
             <h2 id="<?php echo explode( " ", $region[$regionCount] )[0]; ?>" style="text-align: center; padding-top: 25px; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
             <?php $regionCount++;
          endif;
          
+         // if there are posts for this specific region & media type, print media type header
          if ($query->have_posts()) : ?>
             <p style="text-align: center; padding-top: 25px; font-weight: 500; color: #142945;"><?php echo $media[$count % 5]; ?></p>
          <?php endif;
 
+         // increment cycle counter
          $count++;
 
+         // print post (The Loop)
          while ($query->have_posts()) :
-            $query->the_post() ?>
+            $query->the_post();
+            $image = wp_get_attachment_url();                        // URL of the image (work around for lack of thumbnail)
+            $imageData = base64_encode(file_get_contents($image));   // the encoded image ?>
+
+            <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$imageData.'">' ?></a></p>
             <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+
          <?php endwhile;
 
          wp_reset_postdata();
