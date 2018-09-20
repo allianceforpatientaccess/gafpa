@@ -129,7 +129,7 @@
             //$imageData = base64_encode($image);  // the encoded image 
             $im = new Imagick();
             $im->setResolution(300, 300);          //set the resolution of the resulting jpg
-            $im->readImage('file.pdf[0]');         //[0] for the first page
+            $im->readImage(wp_get_attachment_url());         //[0] for the first page
             $im->setImageFormat('jpg');
             header('Content-Type: image/jpeg');
             echo $im; ?>
