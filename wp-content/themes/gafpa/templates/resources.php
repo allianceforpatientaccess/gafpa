@@ -127,7 +127,7 @@
             $query->the_post();
             $image = wp_get_attachment_url();                        // URL of the image (work around for lack of thumbnail)
             //$imageData = base64_encode(file_get_contents($image));   // the encoded image 
-            echo phpversion();?>
+            echo phpinfo();?>
 
             <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><!--?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$imageData.'">' ?--></a></p>
             <p style="text-align: center;"><a style="color: #142945;" href="<?php wp_get_attachment_url() ?>"><?php echo the_title() ?></a></p>
