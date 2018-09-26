@@ -120,33 +120,39 @@
          <?php endif;
 
          // increment cycle counter
-         $count++;
+         $count++; ?>
 
-         // print post (The Loop)
-         while ($query->have_posts()) :
-            $query->the_post();
+         <section style="display: flex; justify-content: center;">
 
-            $image_id = get_the_ID();
-            $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
+            <?php // print post (The Loop)
+            while ($query->have_posts()) :
+               $query->the_post();
 
-            $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
-            //$image_data = base64_encode(file_get_contents($image_url));    // the encoded image
+               $image_id = get_the_ID();
+               $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
-            if ($alt_text == "") : // if the alt text is empty, link to the file itself ?>
+               $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
+               $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
-               <!--p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p-->
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+               if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
-            <?php else : // else, link to the link pasted in alt text (for PDFs)
-            $image_data = base64_encode(file_get_contents($image_url)); ?>
+                  <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
+                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="max-height: 300px; max-width: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+                  </article>
 
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
+               <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
 
-            <?php endif;
-         endwhile;
-         wp_reset_postdata();
-      endforeach; ?>
+                  <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
+                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
+                  </article>
+
+               <?php endif;
+            endwhile;
+            wp_reset_postdata(); ?>
+         </section>
+         <?php endforeach; ?>
    </section>
 
    <?php /* STATIC CONTENT */
