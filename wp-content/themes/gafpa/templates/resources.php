@@ -125,29 +125,22 @@
          // print post (The Loop)
          while ($query->have_posts()) :
             $query->the_post();
-            $image_url = wp_get_attachment_url();                          // URL of the image (work around for lack of thumbnail)
-            $url_array = explode('.' , $image_url);
 
-            if (end($url_array) != "pdf") :                                // if the media file is NOT a pdf, generate thumbnail
-               $image_data = base64_encode(file_get_contents($image_url)); // the encoded image ?>
+            $image_id = get_the_ID();
+            $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);
+
+            $image_url = wp_get_attachment_url();                          // URL of the image (work around for lack of thumbnail)
+            $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
+
+            if ($alt_text == "") : // if the alt text is empty, link to the file itself ?>
 
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
 
-            <?php else :
-               /* TODO: auto-generation of thumbnails for PDF media files
-                  $remote_image = file_get_contents($image_url);
-                  echo file_put_contents("remote_image.pdf", $remote_image);
-                  $im = new Imagick();
-                  $im->setResolution(300, 300);                            //set the resolution of the resulting jpg
-                  $im->readImage("remote_image.pdf[0]");                   //[0] for the first page
-                  $im->setImageFormat('jpg');
-                  header('Content-Type: image/jpeg');
-                  echo $im; 
-               */ 
-            ?>
+            <?php else : // else, link to the link pasted in alt text (for pdfs) ?>
 
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $image_url ?>"><?php echo the_title() ?></a></p>
+               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
 
             <?php endif;
          endwhile;
@@ -159,4 +152,16 @@
    if (strpos(get_permalink($post->ID), 'event') !== false) :
       get_template_part('templates/partials/sc', 'event-list');
    endif;
+
+   /* TODO: auto-generation of thumbnails for PDF media files
+      $remote_image = file_get_contents($image_url);
+      echo file_put_contents("remote_image.pdf", $remote_image);
+      $im = new Imagick();
+      $im->setResolution(300, 300);                               //set the resolution of the resulting jpg
+      $im->readImage("remote_image.pdf[0]");                      //[0] for the first page
+      $im->setImageFormat('jpg');
+      header('Content-Type: image/jpeg');
+      echo $im; 
+   */
+
 ?>
