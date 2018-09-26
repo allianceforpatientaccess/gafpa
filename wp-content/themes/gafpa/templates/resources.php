@@ -138,14 +138,14 @@
 
                   <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
                      <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="max-height: 300px; max-width: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
-                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+                     <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
                   </article>
 
                <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
 
                   <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
                      <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><?php echo '<img style="max-height: 300px; max-width: 300px" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
-                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
+                     <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
                   </article>
 
                <?php endif;
