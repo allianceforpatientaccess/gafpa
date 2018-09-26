@@ -128,7 +128,7 @@
             $image_url = wp_get_attachment_url();                          // URL of the image (work around for lack of thumbnail)
             $url_array = explode('.' , $image_url);
 
-            if (end($url_array) != "pdf") :                 // if the media file is NOT a pdf, generate thumbnail
+            if (end($url_array) != "pdf") :                                // if the media file is NOT a pdf, generate thumbnail
                $image_data = base64_encode(file_get_contents($image_url)); // the encoded image ?>
 
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
@@ -144,7 +144,8 @@
                   $im->setImageFormat('jpg');
                   header('Content-Type: image/jpeg');
                   echo $im; 
-               */ ?>
+               */ 
+                  echo $image_url; ?>
 
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
 
