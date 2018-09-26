@@ -127,19 +127,19 @@
             $query->the_post();
 
             $image_id = get_the_ID();
-            $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);
+            $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
-            $image_url = wp_get_attachment_url();                          // URL of the image (work around for lack of thumbnail)
+            $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
             $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
-            if ($alt_text == "") : // if the alt text is empty, link to the file itself ?>
+            if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
 
-            <?php else : // else, link to the link pasted in alt text (for pdfs) ?>
+            <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
 
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+               <!--p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p-->
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
 
             <?php endif;
