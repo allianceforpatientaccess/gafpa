@@ -132,15 +132,15 @@
             $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
             //$image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
-            if (empty($alt_text)) : // if the alt text is empty, link to the file itself 
-            $image_data = base64_encode(file_get_contents($image_url));?>
+            if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+               <!--p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p-->
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
 
-            <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
+            <?php else : // else, link to the link pasted in alt text (for PDFs)
+            $image_data = base64_encode(file_get_contents($image_url)); ?>
 
-               <!--p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p-->
+               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo '<img style="height: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
                <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
 
             <?php endif;
