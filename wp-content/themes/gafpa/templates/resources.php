@@ -145,9 +145,9 @@
                   header('Content-Type: image/jpeg');
                   echo $im; 
                */ 
-                  echo $image_url; ?>
+            ?>
 
-               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+               <p style="text-align: center;"><a style="color: #142945;" href="<?php echo $image_url ?>"><?php echo the_title() ?></a></p>
 
             <?php endif;
          endwhile;
