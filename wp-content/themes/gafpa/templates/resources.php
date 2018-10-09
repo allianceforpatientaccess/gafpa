@@ -123,15 +123,15 @@
          // listener for input clicks
          $("button").click( function() {
             $("section#" + val).css({"display":"none"}); // hide last section
-            val = $(this).val(); // save the value of the input
+            val = $(this).val(); // save the value of the new button
             $("section#" + val).css({"display":"flex"}); // display respective section
          });
 
       });
    </script>
 
-   <section style="background: white; padding: 100px 0 0 0;">
-      <form style="display: flex; flex-direction: column; margin: 100px;">
+   <section style="background: white; padding: 50px 0 0 0;">
+      <form style="display: flex; flex-direction: column; margin: 0 100px;">
          <?php foreach ($queries as $query) :
             $regionId;     // store region
             $mediaTypeId;  // store resource type
@@ -153,7 +153,7 @@
             // increment cycle counter
             $count++; ?>
 
-            <section id="<?php echo $regionId.'-'.$mediaTypeId; ?>" style="display: none; justify-content: center; /*height: 14px;*/">
+            <section id="<?php echo $regionId.'-'.$mediaTypeId; ?>" style="display: none; justify-content: center;">
 
                <?php // print post (The Loop)
                while ($query->have_posts()) :
