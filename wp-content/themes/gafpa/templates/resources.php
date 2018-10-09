@@ -162,20 +162,22 @@
                   $image_id = get_the_ID();
                   $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
-                  $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
-                  $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
+                  $image_attributes = wp_get_attachment_image_src($image_id, 'medium');
+
+                  //$image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
+                  //$image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
                   if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
                      <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
-                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="max-height: 300px; max-width: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" /></a></p>
                         <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
                      </article>
 
                   <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
 
                      <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
-                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><?php echo '<img style="max-height: 300px; max-width: 300px" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" /></a></p>
                         <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
                      </article>
 
