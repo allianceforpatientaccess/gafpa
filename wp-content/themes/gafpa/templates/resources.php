@@ -121,7 +121,7 @@
          var val;
 
          // listener for input clicks
-         $("input").click( function() {
+         $("button").click( function() {
             $("section#" + val).css({"display":"none"}); // hide last section
             val = $(this).val(); // save the value of the input
             $("section#" + val).css({"display":"flex"}); // display respective section
@@ -131,7 +131,7 @@
    </script>
 
    <section style="background: white; padding: 100px 0 0 0;">
-      <form>
+      <form style="display: flex; flex-direction: column; margin: 100px;">
          <?php foreach ($queries as $query) :
             $regionId;     // store region
             $mediaTypeId;  // store resource type
@@ -147,7 +147,7 @@
             if ($query->have_posts()) :
                $mediaTypeId = explode( " ", $media[$count % 5] )[0]; // use only the first word to avoid spaces in value/ID
                $mediaTypeText = $media[$count % 5]; ?>
-               <input type="radio" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"> <?php echo $mediaTypeText; ?><br>
+               <button style="text-align: center" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?><br></button>
             <?php endif;
 
             // increment cycle counter
