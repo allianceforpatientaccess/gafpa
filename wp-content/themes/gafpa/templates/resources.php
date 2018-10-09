@@ -18,7 +18,7 @@
          elseif( get_row_layout() == 'fc_heading' ):
             get_template_part('templates/partials/fc', 'heading');
          endif;
-         endwhile;
+      endwhile;
    endif;
 
    /* RESOURCES */
@@ -105,54 +105,88 @@
    $count = 0;       // print the corresponding header text for each query
    $regionCount = 0; // print the region every 5 cycles (1 cycle of the media array) ?>
 
+   <style>
+      input:checked ~ .menu-content {
+         max-height: 100%;
+      }
+
+      /*
+       * TODO: id = concat region + resource type, expand when respective radio input = "checked"
+       */
+   </style>
+
+   <script>
+      $(document).ready( function() {
+
+         var val;
+
+         // listener for input clicks
+         $("input").click( function() {
+            $("section#" + val).css({"display":"none"}); // hide last section
+            val = $(this).val(); // save the value of the input
+            $("section#" + val).css({"display":"flex"}); // display respective section
+         });
+
+      });
+   </script>
+
    <section style="background: white; padding: 100px 0 0 0;">
-      <?php foreach ($queries as $query) :
+      <form>
+         <?php foreach ($queries as $query) :
+            $regionId;     // store region
+            $mediaTypeId;  // store resource type
 
-         // print respective region name every fifth cycle (one for each of the media types)
-         if ($count % 5 == 0 && $count < 15) : ?>
-            <h2 id="<?php echo explode( " ", $region[$regionCount] )[0]; ?>" style="text-align: center; padding-top: 25px; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
-            <?php $regionCount++;
-         endif;
-         
-         // if there are posts for this specific region & media type, print media type header
-         if ($query->have_posts()) : ?>
-            <p style="text-align: center; padding-top: 25px; font-weight: 500; color: #142945;"><?php echo $media[$count % 5]; ?></p>
-         <?php endif;
+            // print respective region name every fifth cycle (one for each of the media types)
+            if ($count % 5 == 0 && $count < 15) :
+               $regionId = explode( " ", $region[$regionCount] )[0]; // use only the first word to avoid spaces in value/ID ?>
+               <h2 id="<?php echo $regionId ?>" style="text-align: center; padding-top: 25px; color: #142945;"><?php echo $region[$regionCount]; ?></h2>
+               <?php $regionCount++;
+            endif;
+            
+            // if there are posts for this specific region & media type, print media type header (input selection)
+            if ($query->have_posts()) :
+               $mediaTypeId = explode( " ", $media[$count % 5] )[0]; // use only the first word to avoid spaces in value/ID
+               $mediaTypeText = $media[$count % 5]; ?>
+               <input type="radio" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"> <?php echo $mediaTypeText; ?><br>
+            <?php endif;
 
-         // increment cycle counter
-         $count++; ?>
+            // increment cycle counter
+            $count++; ?>
 
-         <section style="display: flex; justify-content: center;">
+            <section id="<?php echo $regionId.'-'.$mediaTypeId; ?>" style="display: none; justify-content: center; /*height: 14px;*/">
 
-            <?php // print post (The Loop)
-            while ($query->have_posts()) :
-               $query->the_post();
+               <?php // print post (The Loop)
+               while ($query->have_posts()) :
+                  $query->the_post();
 
-               $image_id = get_the_ID();
-               $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
+                  $image_id = get_the_ID();
+                  $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
-               $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
-               $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
+                  $image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
+                  $image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
-               if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
+                  if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
-                  <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
-                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="max-height: 300px; max-width: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
-                     <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
-                  </article>
+                     <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
+                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo '<img style="max-height: 300px; max-width: 300px;" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                        <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo the_permalink() ?>"><?php echo the_title() ?></a></p>
+                     </article>
 
-               <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
+                  <?php else : // else, link to the link pasted in alt text (for PDFs) ?>
 
-                  <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
-                     <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><?php echo '<img style="max-height: 300px; max-width: 300px" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
-                     <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
-                  </article>
+                     <article style="padding: 20px; display: flex; flex-direction: column; justify-content: center">
+                        <p style="text-align: center;"><a style="color: #142945;" href="<?php echo "http://".$alt_text ?>"><?php echo '<img style="max-height: 300px; max-width: 300px" src="data:image/jpeg;base64,'.$image_data.'">' ?></a></p>
+                        <p style="text-align: center; max-width: 300px;"><a style="color: #142945;" href="<?php echo $alt_text ?>"><?php echo the_title() ?></a></p>
+                     </article>
 
-               <?php endif;
-            endwhile;
-            wp_reset_postdata(); ?>
-         </section>
+                  <?php endif;
+               endwhile;
+               wp_reset_postdata(); ?>
+
+            </section>
+
          <?php endforeach; ?>
+      </form>
    </section>
 
    <?php /* STATIC CONTENT */
