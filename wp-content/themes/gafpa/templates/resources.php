@@ -117,14 +117,13 @@
 
    <script>
       $(document).ready( function() {
-
          var val;
 
          // listener for input clicks
          $("button").click( function() {
             $("section#" + val).css({"display":"none"}); // hide last section
             val = $(this).val(); // save the value of the new button
-            $("section#" + val).css({"display":"flex"}); // display respective section
+            $("section#" + val).css({"display":"flex"}); // display respective section (section ID == button value)
          });
 
       });
@@ -163,9 +162,6 @@
                   $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
                   $image_attributes = wp_get_attachment_image_src($image_id, 'medium');
-
-                  //$image_url = wp_get_attachment_url();                          // URL of the image (workaround for lack of thumbnail)
-                  //$image_data = base64_encode(file_get_contents($image_url));    // the encoded image
 
                   if (empty($alt_text)) : // if the alt text is empty, link to the file itself ?>
 
