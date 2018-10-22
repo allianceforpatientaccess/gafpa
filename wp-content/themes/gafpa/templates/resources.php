@@ -159,7 +159,7 @@
                   $query->the_post();
 
                   $image_id = get_the_ID();
-                  $alt_text = get_post_meta($image_id , '_wp_attachment_image_alt', true);   // holds the link for PDF media files
+                  $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);   // holds the link for PDF media files
 
                   $image_attributes = wp_get_attachment_image_src($image_id, 'medium');
 
