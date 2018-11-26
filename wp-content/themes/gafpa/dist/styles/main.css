@@ -24,28 +24,200 @@ body, html {
     font-size: 32px;
 }
 
-/*******EVENT ARCHIVE FORMATTING*******/
+/******* RESOURCE (SPLIT) PAGES *******/
+
+/* exceptions for weird <a/> artifacts in chrome */
+#split-page-container > a {
+	display: none !important;
+}
+
+#split-page-right > a {
+	display: block !important;
+	padding: 0 !important;
+}
+
+.page-header {
+	padding: 0 0 0 3.6%;
+
+	font-weight: 700;
+	line-height: 100px;
+	text-transform: uppercase;
+	text-align: left;
+	color: #282f5d;
+}
+
+.page-header-inverted {
+	padding: 0 0 0 12%;
+
+	font-weight: 700;
+	line-height: 75px;
+	text-transform: uppercase;
+	color: white;
+	background-color: #282f5d;
+}
+
+.divider {
+	background-color: #B5B5B5;
+}
 
 #split-page-main {
-  width: 100%;  
-  background: white;
+	width: 100%;	
 }
 
 .gray {
-  background-color: #F6F6F6;
+	background-color: #F6F6F6;
 }
 
 #split-page-container {
-  margin: auto;
-  max-width: 1000px;
+	margin: auto;
+	max-width: 1000px;
 
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
 }
 
 .search-page {
-  flex-flow: column nowrap !important;
+	flex-flow: column nowrap !important;
+}
+
+#split-page-left {
+	max-width: 65%;
+}
+
+#split-page-right {
+	width: 31%;
+	margin: 0 10px 0 25px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#split-page-right.front-page {
+	min-width: 180px; /*the twitter widget's minimum width*/
+}
+
+.years {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.year {
+	padding-right: 10px;
+	float: left;
+
+	font-weight: 600;
+	color: #B5B5B5;
+
+	cursor: pointer; /* default is text selection */
+}
+
+#twenty-seventeen {
+	visibility: hidden;
+}
+
+#split-page-with-thumbnail {
+	min-width: 650px;
+	margin-bottom: 0px;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.split-page-with-thumbnail-article {
+	max-width: 275px; /*fixed thumbnail sizes for home page*/
+	margin: 0 0 30px 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: flex-end;
+
+	text-align: left;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.split-page-with-thumbnail-article img {
+	max-width: 275px; /*fixed thumbnail sizes for home page*/
+	max-height: 350px;
+	margin-bottom: 10px;
+}
+
+.thumbnail-article-title {
+	font-weight: 800;
+	color: #66ac6e;
+}
+
+.thumbnail-article-title:hover {
+	color: #66ac6e; /*avoid changing color*/
+}
+
+.thumbnail-article-author {
+	font-size: .65em;
+	color: #707070;
+}
+
+.thumbnail-article-date {
+	font-weight: 600;
+	font-size: .7em;
+	text-transform: uppercase;
+	color: #282f5d;
+}
+
+.thumbnail-article-text {
+	font-weight: 500;
+	font-size: 1.3em;
+	color: #707070;
+
+	display: flex;
+	padding: 5px 10px;
+}
+
+#split-page-no-thumbnail {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 0px;
+}
+
+.split-page-no-thumbnail-article {
+	max-width: inherit; /*fixed thumbnail sizes for home page*/
+	margin: 15px 0 15px 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: flex-end;
+
+	text-align: left;
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.no-thumbnail-article-title {
+
+	font-weight: 600;
+	font-size: .75em;
+	color: #282f5d;
+}
+
+.no-thumbnail-article-title:hover {
+	color: #282f5d;
+}
+
+.no-thumbnail-article-author {
+	color: #707070;
+}
+
+.no-thumbnail-article-date {
+	font-weight: 600;
+	font-size: .7em;
+	text-transform: uppercase;
+	color: #707070;
 }
 
 /*******FOOTER POSTS FORMATTING*********/

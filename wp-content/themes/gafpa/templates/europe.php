@@ -45,34 +45,101 @@ jQuery(document).ready(function( $ ) {
 });
 </script>
 
-<main role="main">
-	
-	<!-- header img -->
-	<?php while ( have_posts()) : the_post();
-		the_post_thumbnail('full');
-	endwhile; ?>
-	<!-- /header img -->
+<?php /* RESOURCE QUERY LOGIC */
+
+	// TAXONOMY (TAG) ARRAYS
+	$media_queries = array(
+		'reports',
+		'posters',
+		'fast-facts',
+		'policy-papers',
+		'infographics'
+	);
+
+	// the static part of the taxonomy queries
+	$tax_query_slug = array(
+		'taxonomy'  => 'attachment_tag',
+		'field'     => 'slug',
+		'operator'  => 'AND',
+	);
+
+	$tax_arrays = array();
+
+	// generates an array of the specific taxonomy for each query
+	for ($count = 0; $count < 5; $count++) {
+		array_push( $tax_arrays, array_merge( $tax_query_slug, array( 'terms' => array( 'europe', $media_queries[$count % 5] ) ) ) );
+	}
+
+	// ARGUMENT ARRAYS
+	// the static "resources" query
+	$resources_tax_query = array(
+				'taxonomy'  => 'attachment_category',
+				'field'     => 'slug',
+				'terms'     => 'resources',
+		);
+
+	// the static parts of the WP_Query argument arrays
+	$arg_array_slug = array(
+		'post_type'       => 'attachment',  // media queries
+		'posts_per_page'  => -1,            // all posts
+		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+	);
+
+	$thumbnail_arg_array_slug = array(
+		'post_type'       => 'attachment',  // media queries
+		'posts_per_page'  => 2,            	// only two posts display on the left-hand side (thumbnail)
+		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+	);
+
+	$year_arg_array_slug = array(
+		'post_type'       => 'attachment',  // media queries
+		'posts_per_page'  => 2,            	// only two posts display on the left-hand side (thumbnail)
+		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
+	);
+
+	// the argument arrays that will be used to generate WP queries
+	$arg_arrays 					= array();
+	$thumbnail_arg_arrays = array();
+
+	// the actual WP queries
+	$queries    					= array();
+	$thumbnail_queries		= array();
+
+	// generates an array of complete argument arrays w/ all posts (for generating years & archive arrays)
+	foreach ($tax_arrays as $tax_array) {
+		array_push( $arg_arrays, array_merge( $arg_array_slug, array( 'tax_query' => array( $resources_tax_query, $tax_array ) ) ) );
+	}
+
+	// generates an array of complete argument arrays for the thumbnail display (only 2 posts)
+	foreach ($tax_arrays as $tax_array) {
+		array_push( $thumbnail_arg_arrays, array_merge( $thumbnail_arg_array_slug, array( 'tax_query' => array( $resources_tax_query, $tax_array ) ) ) );
+	}
+
+	// generates an array of the WP_Query objects
+	foreach ($arg_arrays as $args) {
+		array_push( $queries, new WP_Query( $args ) );
+	}
+
+		// generates an array of the WP_Query objects
+		foreach ($thumbnail_arg_arrays as $args) {
+			array_push( $thumbnail_queries, new WP_Query( $args ) );
+		}
+?>
+
+<main role="main" style="background-color: #FFF">
 
 	<div id="split-page-main">
 		<div id="split-page-multi-container">
 
-			<!-- article -->
-			<?php while ( have_posts()) : the_post(); ?>
-				<?php the_content(); ?>
-			<?php endwhile; ?>
-			<!-- /article -->
-
-			<!-- POLICY BRIEFS -->
+			<!-- REPORTS -->
 			<div id="split-page-container">
 
-				<!-- recent policy briefs -->
+				<!-- recent reports -->
 				<section id="split-page-left">
-					<h1 class="page-header">Policy Briefs</h1>
+					<h1 class="page-header">Reports</h1>
 					<section id="split-page-with-thumbnail">
 						<?php
-							$catObj = get_category_by_slug('policy-briefs'); 
-							$catId = $catObj->term_id;
-							$recent_posts = new WP_Query('cat='.$catId.'&&posts_per_page=2');
+							$recent_posts = $thumbnail_queries[0]; // 'reports' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
 						?>
 							<section class="split-page-with-thumbnail-article">
@@ -86,27 +153,19 @@ jQuery(document).ready(function( $ ) {
 						?>
 					</section>
 				</section>
-				<!-- /recent policy briefs -->
+				<!-- /recent reports -->
 
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
-				<!-- policy briefs archive -->
+				<!-- reports archive -->
 				<section id="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
-					<section class="years policy-briefs">
+					<section class="years reports">
 						<?php
 							$years = array();
-							$catObj = get_category_by_slug('policy-briefs'); 
-							$catId = $catObj->term_id; // save category ID
-
-							$args = array(
-								'cat' => $catId,
-								'posts_per_page'=> -1 // all posts
-							);
-
-							$recent_posts = new WP_Query($args);
+							$recent_posts = $queries[0]; // TODO: replace with the correct WP query
 
 							while($recent_posts->have_posts()) {
 								$recent_posts->the_post();
@@ -120,36 +179,26 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="policy-briefs"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="reports"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
-								var pbyear = "<?php echo $years[0] ?>";
+								var reportsYear = "<?php echo $years[0] ?>";
 							</script>
 
 					</section>
 					<!-- /years -->
 					
 					<!-- archive -->
-					<section class="split-page-no-thumbnail policy-briefs">
+					<section class="split-page-no-thumbnail reports">
 						<?php
-							$count = 0; //used to insert dividers b/w articles (TODO)
-							$catObj = get_category_by_slug('policy-briefs'); 
-							
-							$args = array(
-								'cat' => $catId,
-								'posts_per_page'=> -1 // all posts
-							);
-
-							$recent_posts = new WP_Query($args);
-
 							foreach ($years as $year) :
-								$recent_posts = new WP_Query('cat='.$catId.'&&year='.$year);
+								$recent_posts = new WP_Query( array_merge( $arg_arrays[0], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
 								while($recent_posts->have_posts()) :
 									$recent_posts->the_post();
 						?>
-									<section class="split-page-no-thumbnail-article policy-briefs <?php echo $year ?>">
+									<section class="split-page-no-thumbnail-article reports <?php echo $year ?>">
 
 										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 										
@@ -165,9 +214,9 @@ jQuery(document).ready(function( $ ) {
 					</section>
 					<!-- /archive -->
 				</section>
-				<!-- /policy briefs archive -->
+				<!-- /reports archive -->
 			</div>
-			<!-- /POLICY BRIEFS -->
+			<!-- /reports -->
 
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
@@ -223,7 +272,9 @@ jQuery(document).ready(function( $ ) {
 								if(!in_array(get_the_date('Y'), $years)) {
 									array_push($years, get_the_date('Y'));
 								}
-							}							wp_reset_postdata();
+							}
+							
+							wp_reset_postdata();
 
 							//print years
 							foreach ($years as $year) :
@@ -388,7 +439,7 @@ jQuery(document).ready(function( $ ) {
 
 <script type="text/javascript">
 	jQuery(document).ready(function( $ ) {
-		  $("#pb-"+pbyear).click();
+		  $("#reports-"+reportsYear).click();
 		  $("#wp-"+wpyear).click();
 		  $("#ff-"+ffyear).click();
 	});
