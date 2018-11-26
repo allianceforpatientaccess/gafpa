@@ -26,6 +26,11 @@ body, html {
 
 /******* RESOURCE (SPLIT) PAGES *******/
 
+main {
+	background-color: #FFF;
+	font-family: 'Raleway';
+}
+
 /* exceptions for weird <a/> artifacts in chrome */
 #split-page-container > a {
 	display: none !important;
@@ -36,8 +41,9 @@ body, html {
 	padding: 0 !important;
 }
 
-.page-header {
+h1.page-header {
 	padding: 0 0 0 3.6%;
+	border: 0;
 
 	font-weight: 700;
 	line-height: 100px;
@@ -46,7 +52,7 @@ body, html {
 	color: #282f5d;
 }
 
-.page-header-inverted {
+h1.page-header-inverted {
 	padding: 0 0 0 12%;
 
 	font-weight: 700;
@@ -57,7 +63,8 @@ body, html {
 }
 
 .divider {
-	background-color: #B5B5B5;
+	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee; /* for the horizontal borders */
 }
 
 #split-page-main {
@@ -153,6 +160,7 @@ body, html {
 
 .thumbnail-article-title:hover {
 	color: #66ac6e; /*avoid changing color*/
+	text-decoration: none; /* removes default underline */
 }
 
 .thumbnail-article-author {

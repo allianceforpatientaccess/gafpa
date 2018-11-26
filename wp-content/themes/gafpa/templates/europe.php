@@ -126,7 +126,7 @@ jQuery(document).ready(function( $ ) {
 		}
 ?>
 
-<main role="main" style="background-color: #FFF">
+<main role="main">
 
 	<div id="split-page-main">
 		<div id="split-page-multi-container">
@@ -141,9 +141,12 @@ jQuery(document).ready(function( $ ) {
 						<?php
 							$recent_posts = $thumbnail_queries[0]; // 'reports' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
+								$image_id = get_the_ID();
+                $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);   // holds the link for PDF media files
+								$image_attributes = wp_get_attachment_image_src($image_id, 'medium');
 						?>
 							<section class="split-page-with-thumbnail-article">
-								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+								<a href="<?php the_permalink(); ?>"><img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" /></a>
 								<a class="thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 								<p class="thumbnail-article-date" href="<?php the_permalink(); ?>"><?php the_time('F Y'); ?></p>
 							</section>
