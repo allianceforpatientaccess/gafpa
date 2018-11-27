@@ -29,8 +29,9 @@ jQuery(document).ready(function( $ ) {
 
 	// Display/hide years
 	$('.clickable').on('click', function() {
-			var itemClassYear = $(this).attr('itemYear');
-			var itemClassType = $(this).attr('itemType'); // used to distinguish b/w diff types of policy papers
+			var itemClassYear = $(this).attr('itemYear'); // the activated (clicked) year
+			var itemClassType = $(this).attr('itemType'); // resource type
+			console.log(itemClassType+'.'+itemClassYear);
 
 			// reset display
 			$('.years.' + itemClassType).children().css({"color":"#B5B5B5"}); // color everything as unfocused (gray)
@@ -39,7 +40,7 @@ jQuery(document).ready(function( $ ) {
 			// color this year
 			$(this).css({"color":"#282f5d"});
 
-			// woot woot! display selected year's posts
+			// display selected year's posts
 			$('.' + itemClassType + '.' + itemClassYear).css({"display":"flex"});
 	});
 });
@@ -124,7 +125,6 @@ jQuery(document).ready(function( $ ) {
 	foreach ($thumbnail_arg_arrays as $args) {
 		array_push( $thumbnail_queries, new WP_Query( $args ) );
 	}
-
 ?>
 
 <main role="main">
@@ -197,25 +197,20 @@ jQuery(document).ready(function( $ ) {
 					
 					<!-- archive -->
 					<section class="split-page-no-thumbnail reports">
-						<?php
-							foreach ($years as $year) :
-								$recent_posts = new WP_Query( array_merge( $arg_arrays[0], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
-								while($recent_posts->have_posts()) :
-									$recent_posts->the_post();
-						?>
-									<section class="split-page-no-thumbnail-article reports <?php echo $year ?>">
+						<?php foreach ($years as $year) :
+							$recent_posts = new WP_Query( array_merge( $arg_arrays[0], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
+							while($recent_posts->have_posts()) :
+								$recent_posts->the_post(); ?>
 
-										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										
-										<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								<section class="split-page-no-thumbnail-article reports <?php echo $year ?>">
+									<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								</section>
 
-									</section>
-						<?php
-									$count++;
-								endwhile;
-							endforeach;
-							wp_reset_postdata();	
-						?>
+								<?php $count++;
+							endwhile;
+						endforeach;
+						wp_reset_postdata(); ?>
 					</section>
 					<!-- /archive -->
 				</section>
@@ -290,25 +285,20 @@ jQuery(document).ready(function( $ ) {
 					
 					<!-- archive -->
 					<section class="split-page-no-thumbnail posters">
-						<?php
-							foreach ($years as $year) :
-								$recent_posts = new WP_Query( array_merge( $arg_arrays[1], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
-								while($recent_posts->have_posts()) :
-									$recent_posts->the_post();
-						?>
-									<section class="split-page-no-thumbnail-article posters <?php echo $year ?>">
+						<?php foreach ($years as $year) :
+							$recent_posts = new WP_Query( array_merge( $arg_arrays[1], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
+							while($recent_posts->have_posts()) :
+								$recent_posts->the_post(); ?>
 
-										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										
-										<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								<section class="split-page-no-thumbnail-article posters <?php echo $year ?>">
+									<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								</section>
 
-									</section>
-						<?php
-									$count++;
-								endwhile;
-							endforeach;
-							wp_reset_postdata();	
-						?>
+								<?php $count++;
+							endwhile;
+						endforeach;
+						wp_reset_postdata(); ?>
 					</section>
 					<!-- /archive -->
 				</section>
@@ -383,25 +373,20 @@ jQuery(document).ready(function( $ ) {
 					
 					<!-- archive -->
 					<section class="split-page-no-thumbnail fast-facts">
-						<?php
-							foreach ($years as $year) :
-								$recent_posts = new WP_Query( array_merge( $arg_arrays[2], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
-								while($recent_posts->have_posts()) :
-									$recent_posts->the_post();
-						?>
-									<section class="split-page-no-thumbnail-article fast-facts <?php echo $year ?>">
+						<?php foreach ($years as $year) :
+							$recent_posts = new WP_Query( array_merge( $arg_arrays[2], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
+							while($recent_posts->have_posts()) :
+								$recent_posts->the_post(); ?>
 
-										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										
-										<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								<section class="split-page-no-thumbnail-article fast-facts <?php echo $year ?>">
+									<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								</section>
 
-									</section>
-						<?php
-									$count++;
-								endwhile;
-							endforeach;
-							wp_reset_postdata();	
-						?>
+								<?php $count++;
+							endwhile;
+						endforeach;
+						wp_reset_postdata(); ?>
 					</section>
 					<!-- /archive -->
 				</section>
@@ -476,25 +461,20 @@ jQuery(document).ready(function( $ ) {
 					
 					<!-- archive -->
 					<section class="split-page-no-thumbnail policy-papers">
-						<?php
-							foreach ($years as $year) :
-								$recent_posts = new WP_Query( array_merge( $arg_arrays[3], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
-								while($recent_posts->have_posts()) :
-									$recent_posts->the_post();
-						?>
-									<section class="split-page-no-thumbnail-article policy-papers <?php echo $year ?>">
+						<?php foreach ($years as $year) :
+							$recent_posts = new WP_Query( array_merge( $arg_arrays[3], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
+							while($recent_posts->have_posts()) :
+								$recent_posts->the_post(); ?>
 
-										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										
-										<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								<section class="split-page-no-thumbnail-article policy-papers <?php echo $year ?>">
+									<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								</section>
 
-									</section>
-						<?php
-									$count++;
-								endwhile;
-							endforeach;
-							wp_reset_postdata();	
-						?>
+								<?php $count++;
+							endwhile;
+						endforeach;
+						wp_reset_postdata(); ?>
 					</section>
 					<!-- /archive -->
 				</section>
@@ -569,25 +549,20 @@ jQuery(document).ready(function( $ ) {
 					
 					<!-- archive -->
 					<section class="split-page-no-thumbnail infographics">
-						<?php
-							foreach ($years as $year) :
-								$recent_posts = new WP_Query( array_merge( $arg_arrays[4], array( 'year='.$year ) ) ); // generate a WP Query with the additional arg of the dynamically generated years
-								while($recent_posts->have_posts()) :
-									$recent_posts->the_post();
-						?>
-									<section class="split-page-no-thumbnail-article infographics <?php echo $year ?>">
+						<?php foreach ($years as $year) :
+							$recent_posts = new WP_Query( array_merge( $arg_arrays[4], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
+							while($recent_posts->have_posts()) :
+								$recent_posts->the_post(); ?>
 
-										<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										
-										<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								<section class="split-page-no-thumbnail-article infographics <?php echo $year ?>">
+									<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
+								</section>
 
-									</section>
-						<?php
-									$count++;
-								endwhile;
-							endforeach;
-							wp_reset_postdata();	
-						?>
+								<?php $count++;
+							endwhile;
+						endforeach;
+						wp_reset_postdata(); ?>
 					</section>
 					<!-- /archive -->
 				</section>
