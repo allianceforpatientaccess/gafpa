@@ -68,7 +68,9 @@ h1.page-header-inverted {
 }
 
 #split-page-main {
-	width: 100%;	
+	width: 100%;
+	
+	z-index: 5; /* keeps the top years selection above the banner img (the banner image is height-limited but the display space is above the years, for some reason) */
 }
 
 .gray {
@@ -231,10 +233,6 @@ h1.page-header-inverted {
 /**** Custom overrides of other styling ****/
 .background-style-0 {
 	height: 500px;
-}
-
-section.years {
-	z-index: 5; /* keeps the top years selection above the banner img (the banner image is height-limited but the display space is above the years, for some reason) */
 }
 
 /*** DEFAULT STYLING ***/
