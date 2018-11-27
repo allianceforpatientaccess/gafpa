@@ -27,7 +27,7 @@
 // TODO: insert jquery in footer, rather than header
 jQuery(document).ready(function( $ ) {
 
-	// Display/hide years on backpages (Policy Papers, etc.)
+	// Display/hide years
 	$('.clickable').on('click', function() {
 			var itemClassYear = $(this).attr('itemYear');
 			var itemClassType = $(this).attr('itemType'); // used to distinguish b/w diff types of policy papers
@@ -120,10 +120,11 @@ jQuery(document).ready(function( $ ) {
 		array_push( $queries, new WP_Query( $args ) );
 	}
 
-		// generates an array of the WP_Query objects
-		foreach ($thumbnail_arg_arrays as $args) {
-			array_push( $thumbnail_queries, new WP_Query( $args ) );
-		}
+	// generates an array of the WP_Query objects
+	foreach ($thumbnail_arg_arrays as $args) {
+		array_push( $thumbnail_queries, new WP_Query( $args ) );
+	}
+
 ?>
 
 <main role="main">
@@ -182,11 +183,12 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="reports"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="reports-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="reports"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
+								// set resource type year to most recent year (to activate on page load — see script at bottom)
 								var reportsYear = "<?php echo $years[0] ?>";
 							</script>
 
@@ -274,12 +276,13 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="posters"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="posters-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="posters"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
-								var postersYear = "<?php echo $years[1] ?>";
+								// set resource type year to most recent year (to activate on page load — see script at bottom)
+								var postersYear = "<?php echo $years[0] ?>";
 							</script>
 
 					</section>
@@ -366,12 +369,13 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="fast-facts"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="fastFacts-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="fast-facts"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
-								var fast-factsYear = "<?php echo $years[2] ?>";
+								// set resource type year to most recent year (to activate on page load — see script at bottom)
+								var fastFactsYear = "<?php echo $years[0] ?>";
 							</script>
 
 					</section>
@@ -458,12 +462,13 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="policy-papers"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="policyPapers-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="policy-papers"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
-								var policy-papersYear = "<?php echo $years[3] ?>";
+								// set resource type year to most recent year (to activate on page load — see script at bottom)
+								var policyPapersYear = "<?php echo $years[0] ?>";
 							</script>
 
 					</section>
@@ -550,12 +555,13 @@ jQuery(document).ready(function( $ ) {
 							//print years
 							foreach ($years as $year) :
 						?>
-								<h1 class="clickable year" id="pb-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="infographics"><?php echo $year ?></h1>
+								<h1 class="clickable year" id="infographics-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="infographics"><?php echo $year ?></h1>
 
 							<?php endforeach; ?>
 
 							<script type="text/javascript">
-								var infographicsYear = "<?php echo $years[4] ?>";
+								// set resource type year to most recent year (to activate on page load — see script at bottom)
+								var infographicsYear = "<?php echo $years[0] ?>";
 							</script>
 
 					</section>
@@ -598,9 +604,12 @@ jQuery(document).ready(function( $ ) {
 <?php get_template_part('recent-posts'); ?>
 
 <script type="text/javascript">
+	// activate (click) the most recent year on load
 	jQuery(document).ready(function( $ ) {
 		  $("#reports-"+reportsYear).click();
-		  $("#wp-"+wpyear).click();
-		  $("#ff-"+ffyear).click();
+			$("#posters-"+postersYear).click();
+			$("#fastFacts-"+fastFactsYear).click();
+			$("#policyPapers-"+policyPapersYear).click();
+			$("#infographics-"+infographicsYear).click();
 	});
 </script>
