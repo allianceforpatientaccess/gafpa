@@ -207,7 +207,6 @@ h1.page-header-inverted {
 }
 
 .no-thumbnail-article-title {
-
 	font-weight: 600;
 	font-size: .75em;
 	color: #282f5d;
@@ -215,6 +214,7 @@ h1.page-header-inverted {
 
 .no-thumbnail-article-title:hover {
 	color: #282f5d;
+	text-decoration: none; /* remove default underline */
 }
 
 .no-thumbnail-article-author {
