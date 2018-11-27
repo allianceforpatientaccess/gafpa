@@ -228,59 +228,16 @@ h1.page-header-inverted {
 	color: #707070;
 }
 
-/*******FOOTER POSTS FORMATTING*********/
-
-#recent-blog-posts {
-  padding-left: 0px !important;
-  margin: auto;
-  width: 100%;
-
-  line-height: 10em;
+/**** Custom overrides of other styling ****/
+.background-style-0 {
+	height: 500px;
 }
 
-.home-block {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin-bottom: 0px;
+section.years {
+	z-index: 5; /* keeps the top years selection above the banner img (the banner image is height-limited but the display space is above the years, for some reason) */
 }
 
-.home-block-article {
-  max-width: 300px; /*fixed thumbnail sizes for home page*/
-  min-height: 200px;
-  margin: 50px 0 30px 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  text-align: center;
-  font-weight: normal;
-  font-size: 20px;
-}
-
-.home-block-article img {
-  height: 200px;
-}
-
-.home-block-title {
-  font-weight: 800;
-  margin: 10px 0;
-  color: white;
-}
-
-.home-block-title:hover,
-.home-block-date:hover {
-  color: white;
-}
-
-.home-block-date {
-  font-weight: 600;
-  font-size: .8em;
-  text-transform: uppercase;
-  color: white;
-}
+/*** DEFAULT STYLING ***/
 
 .wrap {
   background: #0C142D;
