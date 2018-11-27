@@ -136,7 +136,7 @@ jQuery(document).ready(function( $ ) {
 
 				<!-- recent reports -->
 				<section id="split-page-left">
-					<h1 class="page-header"><?php echo $media_queries[0] ?></h1>
+					<h1 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[0] ) // replace the dashes used in the query args ?></h1>
 					<section id="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[0]; // 'reports' query
@@ -228,7 +228,7 @@ jQuery(document).ready(function( $ ) {
 
 				<!-- recent posters -->
 				<section id="split-page-left">
-					<h1 class="page-header"><?php echo $media_queries[1] ?></h1>
+					<h1 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[1] ) // replace the dashes used in the query args ?></h1>
 					<section id="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[1]; // 'posters' query
@@ -320,7 +320,7 @@ jQuery(document).ready(function( $ ) {
 
 				<!-- recent fast-facts -->
 				<section id="split-page-left">
-					<h1 class="page-header"><?php echo $media_queries[2] ?></h1>
+					<h1 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[2] ) // replace the dashes used in the query args ?></h1>
 					<section id="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[2]; // 'fast-facts' query
@@ -412,7 +412,7 @@ jQuery(document).ready(function( $ ) {
 
 				<!-- recent policy-papers -->
 				<section id="split-page-left">
-					<h1 class="page-header"><?php echo $media_queries[3] ?></h1>
+					<h1 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[3] ) // replace the dashes used in the query args ?></h1>
 					<section id="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[3]; // 'policy-papers' query
@@ -504,7 +504,7 @@ jQuery(document).ready(function( $ ) {
 
 				<!-- recent infographics -->
 				<section id="split-page-left">
-					<h1 class="page-header"><?php echo $media_queries[4] ?></h1>
+					<h1 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[4] ) // replace the dashes used in the query args ?></h1>
 					<section id="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[4]; // 'infographics' query
