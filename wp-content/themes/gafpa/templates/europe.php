@@ -570,20 +570,29 @@ jQuery(document).ready(function( $ ) {
 
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
+			<!-- videos -->
+			<div id="videos-container" style="margin: auto; max-width: 1000px !important;">
+				<div style="width: 65%;">
+					<h2 class="page-header">Videos</h2>
+				</div>
+
+				<?php /* FLEXIBLE CONTENT: VIDEO SECTION */
+				// checks to see if two-up is in use, works under the assumption that two-up won't be in use at the top of the page
+					if( have_rows('fc_panels') ):
+						while ( have_rows('fc_panels') ) : the_row();
+								if( get_row_layout() == 'fc_two_up' ):
+									get_template_part('templates/partials/fc', 'two-up');
+								endif;
+						endwhile;
+					endif; 
+				?>
+
+			</div>
+			<!-- /videos -->
+			
 		</div>
 	</div>
 </main>
-
-<?php /* FLEXIBLE CONTENT: VIDEO SECTION */
-// checks to see if two-up is in use, works under the assumption that two-up won't be in use at the top of the page
-
-if( have_rows('fc_panels') ):
-	while ( have_rows('fc_panels') ) : the_row();
-			if( get_row_layout() == 'fc_two_up' ):
-				get_template_part('templates/partials/fc', 'two-up');
-			endif;
-	endwhile;
-endif; ?>
 
 <?php get_template_part('recent-posts'); ?>
 
