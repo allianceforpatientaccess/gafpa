@@ -41,7 +41,7 @@ main {
 	padding: 0 !important;
 }
 
-h1.page-header {
+h2.page-header {
 	padding: 0 0 0 3.6%;
 	border: 0;
 
@@ -52,7 +52,7 @@ h1.page-header {
 	color: #282f5d;
 }
 
-h1.page-header-inverted {
+h2.page-header-inverted {
 	padding: 0 0 0 12%;
 
 	font-weight: 700;
@@ -69,8 +69,10 @@ h1.page-header-inverted {
 
 #split-page-main {
 	width: 100%;
-	
-	z-index: 5; /* keeps the top years selection above the banner img (the banner image is height-limited but the display space is above the years, for some reason) */
+}
+
+section.years {
+	z-index: 5; /* keeps the first years selection above the banner img (the banner image is height-limited but the display space is on top of the years, for some reason) */
 }
 
 .gray {
