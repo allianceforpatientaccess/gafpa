@@ -24,6 +24,51 @@ body, html {
     font-size: 32px;
 }
 
+/*******FOOTER (BLOG POSTS) FORMATTING*********/
+#recent-blog-posts {
+  padding-left: 0px !important;
+  margin: auto;
+  width: 100%;
+  line-height: 10em;
+}
+.home-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 0px;
+}
+.home-block-article {
+  max-width: 300px; /*fixed thumbnail sizes for home page*/
+  min-height: 200px;
+  margin: 50px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+}
+.home-block-article img {
+  height: 200px;
+
+.home-block-title {
+  font-weight: 800;
+  margin: 10px 0;
+  color: white;
+}
+
+.home-block-title:hover,
+.home-block-date:hover {
+  color: white;
+}
+.home-block-date {
+  font-weight: 600;
+  font-size: .8em;
+  text-transform: uppercase;
+  color: white;
+}
+
 /******* RESOURCE (SPLIT) PAGES *******/
 
 main {
