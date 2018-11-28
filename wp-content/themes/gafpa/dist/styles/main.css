@@ -162,11 +162,11 @@ section.years {
 
 .thumbnail-article-title {
 	font-weight: 800;
-	color: #66ac6e;
+	color: #282f5d;
 }
 
 .thumbnail-article-title:hover {
-	color: #66ac6e; /*avoid changing color*/
+	color: #282f5d; /*avoid changing color*/
 	text-decoration: none; /* removes default underline */
 }
 
