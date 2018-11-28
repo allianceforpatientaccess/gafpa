@@ -13,8 +13,8 @@
             get_template_part('templates/partials/fc', 'page-title');
          elseif( get_row_layout() == 'fc_slider' ):
             get_template_part('templates/partials/fc', 'slider');
-         elseif( get_row_layout() == 'fc_two_up' ):
-            get_template_part('templates/partials/fc', 'two-up');
+         /*elseif( get_row_layout() == 'fc_two_up' ): // commented out so as not to duplicate the custom field display at the bottom of the page (videos)
+            get_template_part('templates/partials/fc', 'two-up');*/
          elseif( get_row_layout() == 'fc_heading' ):
             get_template_part('templates/partials/fc', 'heading');
          endif;
@@ -573,6 +573,17 @@ jQuery(document).ready(function( $ ) {
 		</div>
 	</div>
 </main>
+
+<?php /* FLEXIBLE CONTENT: VIDEO SECTION */
+// checks to see if two-up is in use, works under the assumption that two-up won't be in use at the top of the page
+
+if( have_rows('fc_panels') ):
+	while ( have_rows('fc_panels') ) : the_row();
+			if( get_row_layout() == 'fc_two_up' ):
+				get_template_part('templates/partials/fc', 'two-up');
+			endif;
+	endwhile;
+endif; ?>
 
 <?php get_template_part('recent-posts'); ?>
 

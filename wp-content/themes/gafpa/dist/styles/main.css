@@ -31,6 +31,7 @@ body, html {
   width: 100%;
   line-height: 10em;
 }
+
 .home-block {
   display: flex;
   flex-flow: row wrap;
@@ -38,6 +39,7 @@ body, html {
   align-items: flex-start;
   margin-bottom: 0px;
 }
+
 .home-block-article {
   max-width: 300px; /*fixed thumbnail sizes for home page*/
   min-height: 200px;
@@ -49,6 +51,7 @@ body, html {
   font-weight: normal;
   font-size: 20px;
 }
+
 .home-block-article img {
   height: 200px;
 }
@@ -63,6 +66,7 @@ body, html {
 .home-block-date:hover {
   color: white;
 }
+
 .home-block-date {
   font-weight: 600;
   font-size: .8em;
