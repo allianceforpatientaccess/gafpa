@@ -73,6 +73,8 @@ h2.page-header-inverted {
 
 section.years {
 	z-index: 5; /* keeps the first years selection above the banner img (the banner image is height-limited but the display space is on top of the years, for some reason) */
+
+
 }
 
 .gray {
@@ -118,6 +120,7 @@ section.years {
 	float: left;
 
 	font-weight: 600;
+	font-size: x-large;
 	color: #B5B5B5;
 
 	cursor: pointer; /* default is text selection */
