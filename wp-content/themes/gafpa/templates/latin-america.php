@@ -1,4 +1,4 @@
-<?php /*Template Name: Europe*/
+<?php /*Template Name: Latin America*/
 
 //error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
 
