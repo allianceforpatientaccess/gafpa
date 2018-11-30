@@ -82,11 +82,11 @@ main {
 }
 
 /* exceptions for weird <a/> artifacts in chrome */
-#split-page-container > a {
+.split-page-container > a {
 	display: none !important;
 }
 
-#split-page-right > a {
+.split-page-right > a {
 	display: block !important;
 	padding: 0 !important;
 }
@@ -117,7 +117,7 @@ h2.page-header-inverted {
 	border-bottom: 1px solid #eee; /* for the horizontal borders */
 }
 
-#split-page-main {
+.split-page-main {
 	width: 100%;
 }
 
@@ -131,7 +131,7 @@ section.years {
 	background-color: #F6F6F6;
 }
 
-#split-page-container {
+.split-page-container {
 	margin: auto;
 	max-width: 1000px;
 
@@ -144,11 +144,11 @@ section.years {
 	flex-flow: column nowrap !important;
 }
 
-#split-page-left {
+.split-page-left {
 	max-width: 65%;
 }
 
-#split-page-right {
+.split-page-right {
 	width: 31%;
 	margin: 0 10px 0 25px;
 
@@ -156,7 +156,7 @@ section.years {
 	flex-direction: column;
 }
 
-#split-page-right.front-page {
+.split-page-right.front-page {
 	min-width: 180px; /*the twitter widget's minimum width*/
 }
 
@@ -180,7 +180,7 @@ section.years {
 	visibility: hidden;
 }
 
-#split-page-with-thumbnail {
+.split-page-with-thumbnail {
 	min-width: 650px;
 	margin-bottom: 0px;
 
@@ -241,7 +241,7 @@ section.years {
 	padding: 5px 10px;
 }
 
-#split-page-no-thumbnail {
+.split-page-no-thumbnail {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;

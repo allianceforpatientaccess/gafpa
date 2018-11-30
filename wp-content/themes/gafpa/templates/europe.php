@@ -127,16 +127,17 @@ jQuery(document).ready(function( $ ) {
 
 <main role="main">
 
-	<div id="split-page-main">
-		<div id="split-page-multi-container">
+	<div class="split-page-main">
+		<div class="split-page-multi-container">
 
 			<!-- REPORTS -->
-			<div id="split-page-container">
+			<div class="split-page-container reports">
 
 				<!-- recent reports -->
-				<section id="split-page-left">
+				<a id="reports"></a>
+				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[0] ) // replace the dashes used in the query args ?></h2>
-					<section id="split-page-with-thumbnail">
+					<section class="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[0]; // 'reports' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
@@ -160,7 +161,7 @@ jQuery(document).ready(function( $ ) {
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
 				<!-- reports archive -->
-				<section id="split-page-right">
+				<section class="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
@@ -219,12 +220,12 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- posters -->
-			<div id="split-page-container">
+			<div class="split-page-container posters">
 
 				<!-- recent posters -->
-				<section id="split-page-left">
+				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[1] ) // replace the dashes used in the query args ?></h2>
-					<section id="split-page-with-thumbnail">
+					<section class="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[1]; // 'posters' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
@@ -248,7 +249,7 @@ jQuery(document).ready(function( $ ) {
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
 				<!-- posters archive -->
-				<section id="split-page-right">
+				<section class="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
@@ -307,12 +308,12 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- fast-facts -->
-			<div id="split-page-container">
+			<div class="split-page-container">
 
 				<!-- recent fast-facts -->
-				<section id="split-page-left">
+				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[2] ) // replace the dashes used in the query args ?></h2>
-					<section id="split-page-with-thumbnail">
+					<section class="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[2]; // 'fast-facts' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
@@ -336,7 +337,7 @@ jQuery(document).ready(function( $ ) {
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
 				<!-- fast-facts archive -->
-				<section id="split-page-right">
+				<section class="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
@@ -395,12 +396,12 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- policy-papers -->
-			<div id="split-page-container">
+			<div class="split-page-container">
 
 				<!-- recent policy-papers -->
-				<section id="split-page-left">
+				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[3] ) // replace the dashes used in the query args ?></h2>
-					<section id="split-page-with-thumbnail">
+					<section class="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[3]; // 'policy-papers' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
@@ -424,7 +425,7 @@ jQuery(document).ready(function( $ ) {
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
 				<!-- policy-papers archive -->
-				<section id="split-page-right">
+				<section class="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
@@ -483,12 +484,12 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- infographics -->
-			<div id="split-page-container">
+			<div class="split-page-container">
 
 				<!-- recent infographics -->
-				<section id="split-page-left">
+				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[4] ) // replace the dashes used in the query args ?></h2>
-					<section id="split-page-with-thumbnail">
+					<section class="split-page-with-thumbnail">
 						<?php
 							$recent_posts = $thumbnail_queries[4]; // 'infographics' query
 							while($recent_posts->have_posts()) : $recent_posts->the_post();
@@ -512,7 +513,7 @@ jQuery(document).ready(function( $ ) {
 				<div class="divider divider-horizontal" style="margin: 100px 0 20px 0; width:1px; height: auto;"></div>
 
 				<!-- infographics archive -->
-				<section id="split-page-right">
+				<section class="split-page-right">
 					<div style="width: inherit; height: 100px"></div>
 
 					<!-- years -->
