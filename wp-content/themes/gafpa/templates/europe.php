@@ -131,10 +131,9 @@ jQuery(document).ready(function( $ ) {
 		<div class="split-page-multi-container">
 
 			<!-- REPORTS -->
-			<div class="split-page-container reports">
+			<div class="split-page-container" id="reports">
 
 				<!-- recent reports -->
-				<a id="reports"></a>
 				<section class="split-page-left">
 					<h2 class="page-header"><?php echo str_replace( '-', ' ', $media_queries[0] ) // replace the dashes used in the query args ?></h2>
 					<section class="split-page-with-thumbnail">
@@ -220,7 +219,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- posters -->
-			<div class="split-page-container posters">
+			<div class="split-page-container" id="posters">
 
 				<!-- recent posters -->
 				<section class="split-page-left">
@@ -308,7 +307,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- fast-facts -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="fast-facts">
 
 				<!-- recent fast-facts -->
 				<section class="split-page-left">
