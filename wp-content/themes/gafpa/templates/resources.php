@@ -28,7 +28,7 @@ jQuery(document).ready(function( $ ) {
 	$('.clickable').on('click', function() {
 			var itemClassYear = $(this).attr('itemYear'); // the activated (clicked) year
 			var itemClassType = $(this).attr('itemType'); // resource type
-			// console.log(itemClassType+'.'+itemClassYear);
+			console.log(itemClassType+'.'+itemClassYear);
 
 			// reset display
 			$('.years.' + itemClassType).children().css({"color":"#B5B5B5"}); // color everything as unfocused (gray)
@@ -170,7 +170,7 @@ jQuery(document).ready(function( $ ) {
 							<div style="width: inherit; height: 100px"></div>
 
 							<!-- years -->
-							<section class="years reports">
+							<section class="years <?php echo $mediaTypeId; ?>">
 								<?php
 								$years = array();
 								$recent_posts = $queries[$count];
