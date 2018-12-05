@@ -1,4 +1,4 @@
-<?php /* Template Name: Resources */
+<?php /* Template Name: Front Page */
 
 //error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
 
