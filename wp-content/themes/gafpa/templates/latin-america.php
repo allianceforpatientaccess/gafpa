@@ -1,4 +1,4 @@
-<?php /*Template Name: Latin America*/
+<?php /*Template Name: Europe*/
 
 //error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
 
@@ -131,7 +131,7 @@ jQuery(document).ready(function( $ ) {
 		<div class="split-page-multi-container">
 
 			<!-- REPORTS -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="reports">
 
 				<!-- recent reports -->
 				<section class="split-page-left">
@@ -219,7 +219,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- posters -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="posters">
 
 				<!-- recent posters -->
 				<section class="split-page-left">
@@ -307,7 +307,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- fast-facts -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="fast-facts">
 
 				<!-- recent fast-facts -->
 				<section class="split-page-left">
@@ -395,7 +395,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- policy-papers -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="policy-papers">
 
 				<!-- recent policy-papers -->
 				<section class="split-page-left">
@@ -483,7 +483,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- infographics -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="infographics">
 
 				<!-- recent infographics -->
 				<section class="split-page-left">

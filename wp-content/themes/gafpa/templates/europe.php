@@ -395,7 +395,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- policy-papers -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="policy-papers">
 
 				<!-- recent policy-papers -->
 				<section class="split-page-left">
@@ -483,7 +483,7 @@ jQuery(document).ready(function( $ ) {
 			<div class="divider" style="margin: 2em auto 0 auto; width: 1000px; height: 1px;"></div>
 
 			<!-- infographics -->
-			<div class="split-page-container">
+			<div class="split-page-container" id="infographics">
 
 				<!-- recent infographics -->
 				<section class="split-page-left">
