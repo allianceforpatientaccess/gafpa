@@ -30,8 +30,8 @@
 										);
 
 	$media_queries = array(
-												'posters',
 												'reports',
+												'posters',
 												'fast-facts',
 												'policy-papers',
 												'infographics'
@@ -93,8 +93,8 @@
 	);
 
 	$media = array(
-			"Posters",
 			"Reports",
+			"Posters",
 			"Fast Facts",
 			"Policy Papers",
 			"Infographics",
@@ -131,14 +131,16 @@
 
 				<form style="display: flex; flex-direction: column; margin: 0 100px;">
 					<?php foreach ($queries as $query) :
-						$regionId;     // store region
-						$mediaTypeId;  // store resource type
+						$regionId = 'europe';	// store region
+						$mediaTypeId;  				// store resource type
 						
-						// if there are posts for this specific region & media type, print media type header (input selection)
+						// if there are posts for this specific region (count is used here, kind of hack-ey maybe I'll return to it)
+						// & media type, print media type header (input selection)
 						if ($query->have_posts() && $count < 5) :
-							$mediaTypeId = explode( " ", $media[$count % 5] )[0]; // use only the first word to avoid spaces in value/ID
-							$mediaTypeText = $media[$count % 5]; ?>
-							<button  class="btn btn-default btn-light" style="margin: 5px 0;" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?><br></button>
+							$mediaTypeId = str_replace( " ", "-", $media[$count] ); // replace spaces with dashes
+							$mediaTypeText = $media[$count];
+							$regionHyperLink = site_url( "/".$regionId/*."/#".$mediaTypeId*/); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
 						// increment cycle counter
@@ -155,14 +157,15 @@
 				<form style="display: flex; flex-direction: column; margin: 0 100px;">
 					<?php $count = 5;
 					foreach ($queries as $query) :
-						$regionId;     // store region
-						$mediaTypeId;  // store resource type
+						$regionId = 'latin-america';	// store region
+						$mediaTypeId;  								// store resource type
 						
 						// if there are posts for this specific region & media type, print media type header (input selection)
 						if ($query->have_posts() && $count >= 10) :
-							$mediaTypeId = explode( " ", $media[$count % 5] )[0]; // use only the first word to avoid spaces in value/ID
-							$mediaTypeText = $media[$count % 5]; ?>
-							<button  class="btn btn-default btn-light" style="margin: 5px 0;" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?><br></button>
+							$mediaTypeId = str_replace( " ", "-", $media[$count - 10] ); // use only the first word to avoid spaces in value/ID
+							$mediaTypeText = $media[$count - 10];
+							$regionHyperLink = site_url( "/".$regionId/*."/#".$mediaTypeId*/); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
 						// increment cycle counter
