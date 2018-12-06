@@ -197,14 +197,14 @@ jQuery(document).ready(function( $ ) {
 							</section>
 							<!-- /years -->
 							
-							<!-- archive articls -->
-							<section class="split-page-no-thumbnail reports">
+							<!-- archive articles -->
+							<section class="split-page-no-thumbnail <?php echo $mediaTypeId; ?>">
 								<?php foreach ($years as $year) :
 									$recent_posts = new WP_Query( array_merge( $arg_arrays[$count], array( 'year' => $year ) ) ); // generate a WP Query with the additional param of 'year'
 									while($recent_posts->have_posts()) :
 										$recent_posts->the_post(); ?>
 
-										<section class="split-page-no-thumbnail-article reports <?php echo $year ?>">
+										<section class="split-page-no-thumbnail-article <?php echo $mediaTypeId; ?> <?php echo $year ?>">
 											<a class="no-thumbnail-article-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 											<p class="no-thumbnail-article-date" href="<?php the_permalink(); ?>" style="font-size: .7em; text-transform: uppercase;"><?php the_time('F Y'); ?></p>
 										</section>
