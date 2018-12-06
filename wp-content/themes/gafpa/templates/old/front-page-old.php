@@ -1,5 +1,6 @@
 <?php 
 //error_reporting(E_ALL & ~E_NOTICE); // ignore the offset notices (used in the below syntax)
+
    /* FLEXIBLE CONTENT */
    if( have_rows('fc_panels') ):
       while ( have_rows('fc_panels') ) : the_row();
@@ -22,16 +23,20 @@
 
 <script> // years display
 jQuery(document).ready(function( $ ) {
+
 	// Display/hide years
 	$('.clickable').on('click', function() {
 			var itemClassYear = $(this).attr('itemYear'); // the activated (clicked) year
 			var itemClassType = $(this).attr('itemType'); // resource type
 			console.log(itemClassType+'.'+itemClassYear);
+
 			// reset display
 			$('.years.' + itemClassType).children().css({"color":"#B5B5B5"}); // color everything as unfocused (gray)
 			$('.split-page-no-thumbnail.' + itemClassType).children().css({"display":"none"}) // hide all articles
+
 			// color this year
 			$(this).css({"color":"#282f5d"});
+
 			// display selected year's posts
 			$('.' + itemClassType + '.' + itemClassYear).css({"display":"flex"});
 	});
@@ -39,6 +44,7 @@ jQuery(document).ready(function( $ ) {
 </script>
 
 <?php /* RESOURCE QUERY LOGIC */
+
 	// TAXONOMY (TAG) ARRAYS
 	$media_queries = array(
 		'reports',
@@ -47,17 +53,21 @@ jQuery(document).ready(function( $ ) {
 		'policy-papers',
 		'infographics'
 	);
+
 	// the static part of the taxonomy queries
 	$tax_query_slug = array(
 		'taxonomy'  => 'attachment_tag',
 		'field'     => 'slug',
 		'operator'  => 'AND',
 	);
+
 	$tax_arrays = array();
+
 	// generates an array of the specific taxonomy for each query
 	for ($count = 0; $count < 5; $count++) {
 		array_push( $tax_arrays, array_merge( $tax_query_slug, array( 'terms' => array( get_query_var( 'region' ), $media_queries[$count % 5] ) ) ) );
 	}
+
 	// ARGUMENT ARRAYS
 	// the static "resources" query
 	$resources_tax_query = array(
@@ -65,44 +75,54 @@ jQuery(document).ready(function( $ ) {
 				'field'     => 'slug',
 				'terms'     => 'resources',
 		);
+
 	// the static parts of the WP_Query argument arrays
 	$arg_array_slug = array(
 		'post_type'       => 'attachment',  // media queries
 		'posts_per_page'  => -1,            // all posts
 		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
 	);
+
 	$thumbnail_arg_array_slug = array(
 		'post_type'       => 'attachment',  // media queries
 		'posts_per_page'  => 2,            	// only two posts display on the left-hand side (thumbnail)
 		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
 	);
+
 	$year_arg_array_slug = array(
 		'post_type'       => 'attachment',  // media queries
 		'posts_per_page'  => 2,            	// only two posts display on the left-hand side (thumbnail)
 		'post_status'     => 'inherit',     // WP Query defaults to post_status = 'default', whereas attachments are 'inherit'
 	);
+
 	// the argument arrays that will be used to generate WP queries
 	$arg_arrays 					= array();
 	$thumbnail_arg_arrays = array();
+
 	// the actual WP queries
 	$queries    					= array();
 	$thumbnail_queries		= array();
+
 	// generates an array of complete argument arrays w/ all posts (for generating years & archive arrays)
 	foreach ($tax_arrays as $tax_array) {
 		array_push( $arg_arrays, array_merge( $arg_array_slug, array( 'tax_query' => array( $resources_tax_query, $tax_array ) ) ) );
 	}
+
 	// generates an array of complete argument arrays for the thumbnail display (only 2 posts)
 	foreach ($tax_arrays as $tax_array) {
 		array_push( $thumbnail_arg_arrays, array_merge( $thumbnail_arg_array_slug, array( 'tax_query' => array( $resources_tax_query, $tax_array ) ) ) );
 	}
+
 	// generates an array of the WP_Query objects
 	foreach ($arg_arrays as $args) {
 		array_push( $queries, new WP_Query( $args ) );
 	}
+
 	// generates an array of the WP_Query objects
 	foreach ($thumbnail_arg_arrays as $args) {
 		array_push( $thumbnail_queries, new WP_Query( $args ) );
 	}
+
 	$count = 0; // reset for the below loop
 ?>
 
@@ -154,13 +174,16 @@ jQuery(document).ready(function( $ ) {
 								<?php
 								$years = array();
 								$recent_posts = $queries[$count];
+
 								while($recent_posts->have_posts()) {
 									$recent_posts->the_post();
+
 									if(!in_array(get_the_date('Y'), $years)) {
 										array_push($years, get_the_date('Y'));
 									}
 								}
 								wp_reset_postdata();
+
 								//print years
 								foreach ($years as $year) : ?>
 									<h1 class="clickable year" id="<?php echo $mediaTypeId; ?>-<?php echo $year ?>" itemYear="<?php echo $year ?>" itemType="<?php echo $mediaTypeId; ?>"><?php echo $year ?></h1>

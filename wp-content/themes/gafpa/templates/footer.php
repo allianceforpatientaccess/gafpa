@@ -13,7 +13,7 @@
 ?>
 
 <!-- subscribe button -->
-<!--?php if(isset($isSubscribe)) : // TODO: check to see if it's the subscribe page ?-->
+<!--?php if(isset($isSubscribe)) : // TODO: check to see if it's the subscribe page? -->
    <section style="text-align: center; padding: 100px 0;">
       <a id="subscribe" style="text-transform: uppercase; color: white;" href="<?php echo get_site_url(); ?>/email-signup/">Subscribe</a>
    </section>
