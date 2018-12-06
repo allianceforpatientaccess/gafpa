@@ -127,19 +127,18 @@
 		<section id="resource-container" style="width: 1000px; margin: auto; display: flex; justify-content: space-around;">
 
 			<section id="resource-europe" style="width: 500px; text-align: center;">
+				<?php $regionId = 'europe';	// store region ?>
+				<a href="<?php echo site_url( "/".$regionId ); ?>"><img src="<?php echo get_template_directory_uri()."/assets/images/europe.png" ?>" alt="Europe"></a>
 				<h2 style="font-family: Fira Sans !important; color: #142945;">Europe</h2>
 
 				<form style="display: flex; flex-direction: column; margin: 0 100px;">
-					<?php foreach ($queries as $query) :
-						$regionId = 'europe';	// store region
-						$mediaTypeId;  				// store resource type
-						
+					<?php foreach ($queries as $query) :				
 						// if there are posts for this specific region (count is used here, kind of hack-ey maybe I'll return to it)
 						// & media type, print media type header (input selection)
 						if ($query->have_posts() && $count < 5) :
 							$mediaTypeId = str_replace( " ", "-", $media[$count] ); // replace spaces with dashes
 							$mediaTypeText = $media[$count];
-						$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/ ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
 							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
@@ -152,19 +151,19 @@
 			<div class="divider divider-horizontal" style="width: 1px; height: auto;"></div>
 
 			<section id="resource-latin-america" style="width: 500px; text-align: center;">
+				<?php $regionId = 'latin-america';	// store region ?>
+				<a href="<?php echo site_url( "/".$regionId ); ?>"><img src="<?php echo get_template_directory_uri()."/assets/images/latin.png" ?>" alt="Latin America"></a>
 				<h2 style="font-family: Fira Sans !important; color: #142945;">Latin America</h2>
 
 				<form style="display: flex; flex-direction: column; margin: 0 100px;">
 					<?php $count = 5;
 					foreach ($queries as $query) :
-						$regionId = 'latin-america';	// store region
-						$mediaTypeId;  								// store resource type
-						
-						// if there are posts for this specific region & media type, print media type header (input selection)
+						// if there are posts for this specific region (count is used here, kind of hack-ey maybe I'll return to it)
+						// & media type, print media type header (input selection)
 						if ($query->have_posts() && $count >= 10) :
 							$mediaTypeId = str_replace( " ", "-", $media[$count - 10] ); // use only the first word to avoid spaces in value/ID
 							$mediaTypeText = $media[$count - 10];
-							$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/ ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
 							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
