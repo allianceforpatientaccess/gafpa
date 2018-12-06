@@ -136,9 +136,9 @@
 						// if there are posts for this specific region (count is used here, kind of hack-ey maybe I'll return to it)
 						// & media type, print media type header (input selection)
 						if ($query->have_posts() && $count < 5) :
-							$mediaTypeId = str_replace( " ", "-", $media[$count] ); // replace spaces with dashes
+							$mediaTypeId = strtolower( str_replace( " ", "-", $media[$count] ) ); // make lowercase & replace spaces with dashes
 							$mediaTypeText = $media[$count];
-							$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/ ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							$regionHyperLink = site_url( "/".$regionId."#".$mediaTypeId ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
 							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
@@ -161,9 +161,9 @@
 						// if there are posts for this specific region (count is used here, kind of hack-ey maybe I'll return to it)
 						// & media type, print media type header (input selection)
 						if ($query->have_posts() && $count >= 10) :
-							$mediaTypeId = str_replace( " ", "-", $media[$count - 10] ); // use only the first word to avoid spaces in value/ID
+							$mediaTypeId = strtolower( str_replace( " ", "-", $media[$count - 10] ) ); // make lowercase & replace spaces with dashes
 							$mediaTypeText = $media[$count - 10];
-							$regionHyperLink = site_url( "/".$regionId/*."#".$mediaTypeId*/ ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
+							$regionHyperLink = site_url( "/".$regionId."#".$mediaTypeId ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
 							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
 
