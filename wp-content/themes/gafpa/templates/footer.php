@@ -13,7 +13,7 @@
 ?>
 
 <!-- subscribe button -->
-<section id="subscribe-form" style="text-align: center; padding: 100px 0; display: flex; flex-direction: column; align-items: center;">
+<section id="subscribe-form" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
 	<?php gravity_form( 8, $display_title = false, $display_description = false ); ?>
 </section>
 <!-- /subscribe button -->
