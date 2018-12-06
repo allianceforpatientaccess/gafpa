@@ -13,12 +13,9 @@
 ?>
 
 <!-- subscribe button -->
-<!--?php if(isset($isSubscribe)) : // TODO: check to see if it's the subscribe page? -->
-   <section style="text-align: center; padding: 100px 0;">
-      <a id="subscribe" style="text-transform: uppercase; color: white;" href="<?php echo get_site_url(); ?>/email-signup/">Subscribe</a>
-			<?php gravity_form( 8, $display_title = false, $display_description = false ); ?>
-   </section>
-<!--?php endif; ?-->
+<section id="subscribe-form" style="text-align: center; padding: 100px 0; display: flex; flex-direction: column; align-items: center;">
+	<?php gravity_form( 8, $display_title = false, $display_description = false ); ?>
+</section>
 <!-- /subscribe button -->
 
 <footer class="container-fluid">

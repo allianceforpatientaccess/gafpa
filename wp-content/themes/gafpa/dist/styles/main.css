@@ -11,17 +11,41 @@
 body, html {
   overflow-x: hidden; }
 
-/*******SUBSCRIBE BUTTON******/
+/*******SUBSCRIBE Form******/
 
-#subscribe {
-    background-color: #0C142D;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 32px;
+input#input_8_1.medium {
+	border: 1px solid transparent;
+	border-color: #142945;
+}
+
+input#gform_submit_button_8.gform_button.button {
+	background: #ffffff;
+    background-color: rgb(255, 255, 255);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: none;
+    background-size: auto auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+	color: #142945;
+	border-color: #142945;
+}
+
+input#gform_submit_button_8.gform_button.button:hover {
+	background: #142945;
+    background-color: rgb(20, 41, 69);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-image: none;
+    background-size: auto auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+	color: #ffffff;
+	border-color: #142945;
 }
 
 /*******FOOTER (BLOG POSTS) FORMATTING*********/
