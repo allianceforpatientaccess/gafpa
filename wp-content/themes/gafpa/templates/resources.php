@@ -168,7 +168,7 @@ jQuery(document).ready(function( $ ) {
 
 									<script type="text/javascript">
 										// set resource type year to most recent year (to activate on page load — see script at bottom)
-										var <?php echo str_replace( '-', '', $mediaTypeId); ?>Year = "<?php echo $years[0] ?>";
+										var <?php echo str_replace( '-', '', $mediaTypeId) ?>Year = "<?php echo $years[0] ?>";
 									</script>
 
 							</section>
@@ -228,7 +228,7 @@ jQuery(document).ready(function( $ ) {
 
 <script type="text/javascript">
 	// activate (click) the most recent year on load
-	// try/catch used to avoid console errors (incase the section wasn't displayed)
+	// try/catch used to avoid console errors (in case the section wasn't displayed)
 	// TODO: move this into the foreach loop
 	jQuery(document).ready(function( $ ) {
 		  try { $("#reports-"+reportsYear).click(); } catch(e) {}
