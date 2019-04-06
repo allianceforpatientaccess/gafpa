@@ -61,7 +61,9 @@ input#gform_submit_button_8.gform_button.button:hover {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: flex-start;
-  margin-bottom: 0px;
+	margin-bottom: 0px;
+	
+	background-color: #b2c5d8;
 }
 
 .home-block-article {
@@ -73,7 +75,7 @@ input#gform_submit_button_8.gform_button.button:hover {
   justify-content: flex-start;
   text-align: center;
   font-weight: normal;
-  font-size: 20px;
+	font-size: 20px;
 }
 
 .home-block-article img {
@@ -83,19 +85,21 @@ input#gform_submit_button_8.gform_button.button:hover {
 .home-block-title {
   font-weight: 800;
   margin: 10px 0;
-  color: white;
+  color: #0C142D;
+	;
 }
 
 .home-block-title:hover,
 .home-block-date:hover {
-  color: white;
+  color: #0C142D;
+	;
 }
 
 .home-block-date {
   font-weight: 600;
   font-size: .8em;
   text-transform: uppercase;
-  color: white;
+	color: #0C142D;
 }
 
 /******* RESOURCE (SPLIT) PAGES *******/

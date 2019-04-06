@@ -13,31 +13,30 @@
 ?>
 
 <!-- subscribe button -->
-<section id="subscribe-form" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+<section id="subscribe-form" style="text-align: center; display: flex; flex-direction: column; align-items: center; margin-top: 30px;">
 	<?php gravity_form( 8, $display_title = false, $display_description = false ); ?>
 </section>
 <!-- /subscribe button -->
 
+<!--recent blog posts-->
+<section id="recent-blog-posts">
+	<h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: #0C142D; background-color: #b2c5d8; padding-top: 100px; margin-bottom: 0;">From the Blog</h2>
+</section>
+
+<section class="home-block">
+			<?php $recent_posts = new WP_Query('&&posts_per_page=3');
+			while($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
+				<section class="home-block-article">
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+						<a class="home-block-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<a class="home-block-date" href="<?php the_permalink(); ?>" style="font-size: .7em"><?php the_time(get_option('date_format')); ?></a>
+				</section>
+			<?php endwhile;
+			wp_reset_postdata();  ?>
+</section>
+<!--/recent blog posts-->
+
 <footer class="container-fluid">
-
-   <!--recent blog posts-->
-   <section id="recent-blog-posts">
-      <h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: white; padding-top: 100px; margin-bottom: 0;">From the Blog</h2>
-   </section>
-
-   <section class="home-block">
-         <?php $recent_posts = new WP_Query('&&posts_per_page=3');
-         while($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
-            <section class="home-block-article">
-               <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
-               <a class="home-block-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-               <a class="home-block-date" href="<?php the_permalink(); ?>" style="font-size: .7em"><?php the_time(get_option('date_format')); ?></a>
-            </section>
-         <?php endwhile;
-         wp_reset_postdata();  ?>
-   </section>
-   <!--/recent blog posts-->
-
    <div class="container">
       <div class="row">
          <div class="col-lg-12 cta-wrapper">
