@@ -79,7 +79,9 @@ input#gform_submit_button_8.gform_button.button:hover {
 }
 
 .home-block-article img {
-  height: 200px;
+	height: 200px;
+	width: 300px;
+	object-fit: contain;
 }
 
 .home-block-title {
