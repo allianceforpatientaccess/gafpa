@@ -18,23 +18,36 @@
 </section>
 <!-- /subscribe button -->
 
-<!--recent blog posts-->
-<section id="recent-blog-posts">
-	<h2 style="padding-left: 6vw; font-weight: bold; text-transform: uppercase; color: #0C142D; background-color: #b2c5d8; padding-top: 100px; margin-bottom: 0;">From the Blog</h2>
-</section>
+<!-- pre-footer -->
+<section id="pre-footer">
 
-<section class="home-block">
-			<?php $recent_posts = new WP_Query('&&posts_per_page=3');
-			while($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
-				<section class="home-block-article">
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
-						<a class="home-block-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						<a class="home-block-date" href="<?php the_permalink(); ?>" style="font-size: .7em"><?php the_time(get_option('date_format')); ?></a>
-				</section>
-			<?php endwhile;
-			wp_reset_postdata();  ?>
+
+	<!-- recent blog posts -->
+	<section id="recent-blog-posts">
+		<h2>From the Blog</h2>
+
+		<section class="home-block">
+					<?php $recent_posts = new WP_Query('&&posts_per_page=2');
+					while($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
+						<section class="home-block-article">
+								<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+								<a class="home-block-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								<a class="home-block-date" href="<?php the_permalink(); ?>" style="font-size: .7em"><?php the_time(get_option('date_format')); ?></a>
+						</section>
+					<?php endwhile;
+					wp_reset_postdata();  ?>
+		</section>
+	</section>
+	<!-- /recent blog posts -->
+
+	<!-- twitter feed -->
+	<section id="twitter">
+	<a class="twitter-timeline" data-height="500" href="https://twitter.com/globalafpa?ref_src=twsrc%5Etfw">Tweets by globalafpa</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+	</section>
+
+	<!-- /twitter feed -->
 </section>
-<!--/recent blog posts-->
+<!-- /pre-footer -->
 
 <footer class="container-fluid">
    <div class="container">

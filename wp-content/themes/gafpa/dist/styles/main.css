@@ -49,11 +49,34 @@ input#gform_submit_button_8.gform_button.button:hover {
 }
 
 /*******FOOTER (BLOG POSTS) FORMATTING*********/
+
+#pre-footer {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 0 6vw;
+
+	background-color: #b2c5d8;
+}
+
 #recent-blog-posts {
+	flex-basis: 67%;
+
   padding-left: 0px !important;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
-  line-height: 10em;
+  /*line-height: 10em;*/
+}
+
+#recent-blog-posts > h2 {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #0C142D;
+}
+
+#twitter {
+	flex-basis: 33%;
+	margin: 20px 0;
 }
 
 .home-block {
