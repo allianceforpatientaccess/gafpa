@@ -5,7 +5,7 @@
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">
-	    <?php the_post_thumbnail('large');    ?>
+	    <!--?php the_post_thumbnail('large');    ?-->
       <?php the_content(); ?>
     </div>
     <div class="article-footer">
