@@ -141,10 +141,19 @@
 							$regionHyperLink = site_url( "/".$regionId."#".$mediaTypeId ); // anchor offset commented out because it's not working, for some insane dumb reason ?>
 							<a style="width: 100%; margin: 5px 0;" href="<?php echo $regionHyperLink;?>"><button style="width: 100%;" class="btn btn-default btn-light" type="button" name="resource" value="<?php echo $regionId.'-'.$mediaTypeId; ?>"><?php echo $mediaTypeText; ?></button></a>
 						<?php endif;
-
 						// increment cycle counter
 						$count++; ?>
 					<?php endforeach; ?>
+
+					<!-- videos link -->
+					<a style="width: 100%; margin: 5px 0;" href="<?php echo site_url( "/".$regionId."#videos-container" ); ?>">
+						<button 
+							style="width: 100%;" 
+							class="btn btn-default btn-light" 
+							type="button" 
+							name="resource" 
+							value="<?php echo $regionId.'-'.$mediaTypeId; ?>">Videos</button>
+					</a>
 				</form>
 			</section>
 
@@ -170,6 +179,16 @@
 						// increment cycle counter
 						$count++; ?>
 					<?php endforeach; ?>
+
+						<!-- videos link -->
+					<a style="width: 100%; margin: 5px 0;" href="<?php echo site_url( "/".$regionId."#videos-container" ); ?>">
+						<button 
+							style="width: 100%;" 
+							class="btn btn-default btn-light" 
+							type="button" 
+							name="resource" 
+							value="<?php echo $regionId.'-'.$mediaTypeId; ?>">Videos</button>
+					</a>
 				</form>
 			</section>
 		</section>
