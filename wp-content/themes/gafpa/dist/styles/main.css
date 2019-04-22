@@ -1218,11 +1218,11 @@ header {
     @media (max-width: 767px) {
       header .navbar {
         margin-top: 0 !important;
-        margin-bottom: 28px; } }
+        /* margin-bottom: 28px; */ } }
     @media (min-width: 768px) and (max-width: 991px) {
       header .navbar {
         margin-top: 0 !important;
-        margin-bottom: 28px; } }
+        /*margin-bottom: 28px;*/ } }
     header .navbar ul {
       float: right; }
       @media (max-width: 767px) {
