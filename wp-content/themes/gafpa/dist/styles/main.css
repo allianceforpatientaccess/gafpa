@@ -190,7 +190,7 @@ section.years {
 
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: space-around;
 }
 
 .search-page {
@@ -198,11 +198,11 @@ section.years {
 }
 
 .split-page-left {
-	max-width: 65%;
+	flex-basis: 60%;
 }
 
 .split-page-right {
-	width: 31%;
+	flex-basis: 33%;
 	margin: 0 10px 0 25px;
 
 	display: flex;
@@ -234,7 +234,7 @@ section.years {
 }
 
 .split-page-with-thumbnail {
-	min-width: 650px;
+	flex-basis: 67%;
 	margin-bottom: 0px;
 
 	display: flex;
