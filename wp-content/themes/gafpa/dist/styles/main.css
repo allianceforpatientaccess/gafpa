@@ -1202,10 +1202,12 @@ header {
     margin-right: -5px; }
     @media (max-width: 767px) {
       header .navbar {
-        /* height: 90px; */ } } /* rm'ing this responsive behavior to avoid weird whitespace in the navbar on small screens */
+				height: 128px;
+				margin-top: 28px; } } /* rm'ing this responsive behavior to avoid weird whitespace in the navbar on small screens */
     @media (min-width: 768px) and (max-width: 991px) {
       header .navbar {
-        /* height: 90px; */ } }
+				height: 128px;
+				margin-top: 28px; } }
     header .navbar .navbar-header button:focus, header .navbar .navbar-header button:hover {
       background: transparent; }
     header .navbar .navbar-header button:not(.collapsed) .icon-bar {
