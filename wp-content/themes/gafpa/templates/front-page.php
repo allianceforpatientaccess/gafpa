@@ -124,7 +124,7 @@
 	</script>
 
 	<section id="resource-background" style="background: white; padding: 50px 0 0 0;">	
-		<section id="resource-container" style="width: 1000px; margin: auto; display: flex; justify-content: space-around;">
+		<section id="resource-container" style="margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
 
 			<section id="resource-europe" style="width: 500px; text-align: center;">
 				<?php $regionId = 'europe';	// store region ?>
