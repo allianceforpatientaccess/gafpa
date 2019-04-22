@@ -13,7 +13,7 @@
 	}
 
 	.navbar-brand > img:nth-child(1) {
-		margin-left: -150px;
+		margin-left: -200px;
 	}
 </style>
 <!-- /EAfPA logo -->
