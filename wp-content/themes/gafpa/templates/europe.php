@@ -13,6 +13,10 @@
 		background-size: 150px;
 
 		overflow: hidden;
+
+		position: absolute;
+		top: 0px;
+		left: 0px;
 	}
 
 	.navbar-brand > img:nth-child(1) {
