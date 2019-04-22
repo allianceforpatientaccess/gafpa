@@ -3,12 +3,15 @@
 <!-- EAfPA logo -->
 <style>
 	.navbar-brand {
-		height: 150px;
+		height: 110px;
 		width: 150px;
 
 		display: block;
+		margin-top: 15px;
+
 		background: url(http://gafpa.staging.wpengine.com/wp-content/uploads/EAfPA-logo.png) no-repeat;
 		background-size: 150px;
+
 		overflow: hidden;
 	}
 
