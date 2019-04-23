@@ -131,7 +131,7 @@ input#gform_submit_button_8.gform_button.button:hover {
 
 main {
 	background-color: #FFF;
-	font-family: 'Raleway';
+	/*font-family: 'Raleway';*/ /* using gafpa's font 'Fira Sans' */
 }
 
 /* exceptions for weird <a/> artifacts in chrome */
