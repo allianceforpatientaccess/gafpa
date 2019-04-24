@@ -1023,7 +1023,7 @@ h3 {
 @media (min-width: 768px) {
   .fc-two-up.layout-style-1 .text-side, .fc-two-up.layout-style-1 .image-side {
     width: 600px;
-    height: 600px; } }
+    /* height: 600px; */} }
 @media (max-width: 767px) {
   .fc-two-up.layout-style-1 .text-side, .fc-two-up.layout-style-1 .image-side {
     height: auto; } }
