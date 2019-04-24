@@ -14,7 +14,7 @@
 
 <!-- subscribe button -->
 <section id="subscribe-form" style="text-align: center; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 100px;">
-	<p style="margin: 0 16px 0 0;">Register for email updates, here!</p>
+	<p style="margin: 0 16px 0 0;">Sign up to receive updates from GAfPA</p>
 	<?php gravity_form( 8, $display_title = false, $display_description = false ); ?>
 </section>
 <!-- /subscribe button -->
