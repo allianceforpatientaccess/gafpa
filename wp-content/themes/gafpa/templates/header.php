@@ -11,7 +11,7 @@
            <span class="icon-bar"></span>
            <i class="fa fa-times" aria-hidden="true"></i>
          </button>
-         <a class="navbar-brand" href="<?php echo get_option('home'); ?>"><img src="/wp-content/themes/gafpa/assets/images/logo2.png"></a>
+         <a class="navbar-brand" style="content: initial;" href="<?php echo get_option('home'); ?>"><img src="/wp-content/themes/gafpa/assets/images/logo2.png"></a>
        </div>
        <div id="navbar" class="collapse navbar-collapse">
           <?php
